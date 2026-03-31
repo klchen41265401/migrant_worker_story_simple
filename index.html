@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>與移工認識的經過 — 2024 紀實</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FFF8F0;
+            --card: #FFFFFF;
+            --accent: #E8734A;
+            --accent-light: #FFF0EB;
+            --text: #2D2A26;
+            --text-light: #6B6560;
+            --border: #F0E6DC;
+            --timeline: #E8734A;
+            --tag-blue: #E3F0FF;
+            --tag-blue-text: #2B6CB0;
+            --tag-green: #E6FFED;
+            --tag-green-text: #276749;
+            --tag-yellow: #FFFBE6;
+            --tag-yellow-text: #975A16;
+            --tag-red: #FFF5F5;
+            --tag-red-text: #C53030;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Header */
+        .hero {
+            background: linear-gradient(135deg, #E8734A 0%, #F4A261 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: var(--bg);
+            border-radius: 50% 50% 0 0;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        .hero p {
+            font-size: 1.05rem;
+            opacity: 0.92;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Nav */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,248,240,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 20px;
+            display: flex;
+            gap: 4px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .nav-bar::-webkit-scrollbar { height: 0; }
+        .nav-bar a {
+            padding: 12px 16px;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.88rem;
+            white-space: nowrap;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        .nav-bar a:hover, .nav-bar a.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Container */
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        /* Intro card */
+        .intro-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            margin-bottom: 48px;
+            border-left: 4px solid var(--accent);
+        }
+        .intro-card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+        .intro-card p {
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        .intro-card .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            margin: 4px 4px 4px 0;
+        }
+        .tag-blue { background: var(--tag-blue); color: var(--tag-blue-text); }
+        .tag-green { background: var(--tag-green); color: var(--tag-green-text); }
+        .tag-yellow { background: var(--tag-yellow); color: var(--tag-yellow-text); }
+        .tag-red { background: var(--tag-red); color: var(--tag-red-text); }
+
+        /* Section titles */
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 48px 0 24px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border);
+            scroll-margin-top: 60px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .entry {
+            position: relative;
+            margin-bottom: 28px;
+            background: var(--card);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+        }
+        .entry:hover {
+            transform: translateY(-1px);
+        }
+        .entry::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 28px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--bg);
+        }
+        .entry.highlight::before {
+            width: 14px;
+            height: 14px;
+            left: -27px;
+            top: 26px;
+            box-shadow: 0 0 0 4px var(--accent-light);
+        }
+
+        .entry-date {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .entry-content p {
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        .entry-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .redacted {
+            background: #333;
+            color: #333;
+            padding: 0 6px;
+            border-radius: 3px;
+            cursor: default;
+            user-select: none;
+            font-size: 0.85rem;
+        }
+        .redacted:hover {
+            color: #999;
+        }
+
+        .quote {
+            border-left: 3px solid var(--accent);
+            padding: 12px 16px;
+            margin: 12px 0;
+            background: var(--accent-light);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        .dialogue {
+            background: #F7F5F2;
+            padding: 16px;
+            border-radius: 10px;
+            margin: 12px 0;
+        }
+        .dialogue p {
+            margin-bottom: 6px !important;
+        }
+        .dialogue strong {
+            color: var(--accent);
+        }
+
+        /* Contract section */
+        .contract {
+            background: var(--card);
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .contract h3 {
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .contract ol {
+            padding-left: 20px;
+        }
+        .contract ol li {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 60px;
+        }
+
+        /* Back to top */
+        .back-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(232,115,74,0.4);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .back-top.show { opacity: 1; }
+
+        /* RWD */
+        @media (max-width: 640px) {
+            .hero { padding: 60px 16px 48px; }
+            .hero h1 { font-size: 1.6rem; }
+            .hero p { font-size: 0.95rem; }
+            .container { padding: 24px 14px 60px; }
+            .intro-card { padding: 20px; }
+            .entry { padding: 18px; }
+            .section-title { font-size: 1.2rem; }
+            .timeline { padding-left: 22px; }
+            .entry::before { left: -19px; }
+            .entry.highlight::before { left: -21px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <h1>與移工認識的經過</h1>
+    <p>2024 年，一段從鄰居到家人的紀實。這是小恩與戎狄的故事。</p>
+</header>
+
+<nav class="nav-bar" id="nav">
+    <a href="#intro">前情提要</a>
+    <a href="#jan">一月</a>
+    <a href="#feb">二月</a>
+    <a href="#mar">三月（逃亡）</a>
+    <a href="#apr">四月</a>
+    <a href="#may">五月</a>
+    <a href="#jun">六月</a>
+    <a href="#jul">七月</a>
+    <a href="#aug">八月</a>
+    <a href="#sep">九月</a>
+    <a href="#oct">十月</a>
+    <a href="#nov">十一月</a>
+    <a href="#dec">十二月</a>
+    <a href="#y2025">2025</a>
+    <a href="#y2026">2026</a>
+    <a href="#end">尾聲</a>
+</nav>
+
+<main class="container">
+
+    <!-- INTRO -->
+    <section id="intro">
+        <div class="intro-card">
+            <h2>前情提要</h2>
+            <p>小恩，29 歲碩士畢業，任職醫療器材研發工程師。</p>
+            <p>戎狄（移工），21 歲高職汽車科肄業，剛認識時做工程（主要打石）。</p>
+            <p>移工是中壢租屋的鄰居房客 A 房，小恩是 C 房。其實是新住民。</p>
+            <p>在還沒認識以前，小恩就發現 A 房時常鞋子很髒泥土很多，可能是做工程的人。</p>
+            <div style="margin-top:12px">
+                <span class="tag tag-blue">鄰居</span>
+                <span class="tag tag-green">新住民</span>
+                <span class="tag tag-yellow">中壢</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 一月 -->
+    <h2 class="section-title" id="jan">一月 — 初識</h2>
+    <div class="timeline">
+
+        <div class="entry">
+            <div class="entry-date">1/11</div>
+            <div class="entry-content">
+                <p>移工沒有帶鑰匙請小恩幫忙開門，移工在外面破壞紗窗，房東很生氣，請小恩開門給他進來，初步認識移工知道他做工程。</p>
+                <p>走廊上小聊一下，但是連臉都不記得，小恩主動問說要不要加 LINE，以免之後發生同樣情況，房東會很生氣，而且他也會很難受，外面很冷。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">1/11 – 1/23</div>
+            <div class="entry-content">
+                <p>移工跟小恩沒有任何聯絡。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">1/23</div>
+            <div class="entry-content">
+                <p>移工突然密小恩說要借 $300，小恩直接借，因為是小錢。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">1/27</div>
+            <div class="entry-content">
+                <p>小恩尾牙剛好沒健身，催移工還錢他說還不出來，小恩請他到房間說一下他自己的情況。</p>
+                <p>才 $300 還不出來的人一定有狀況，小恩這樣想。</p>
+                <p>那天下著大雨非常冷，小恩知道他很餓，臉色偏黃，緊急泡亞培和高蛋白給他補身體。</p>
+                <p>那天帶移工去 bar 吃吃喝喝，請他喝點小酒跟吃燒烤、炒飯，花 $700 多。</p>
+                <p>稍微知道移工欠他人錢所以在老闆那邊工作，3W 多。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">1/28</div>
+            <div class="entry-content">
+                <p>移工來小恩房間玩電腦睡覺，移工開始自己開門進來。</p>
+                <p>移工跟小恩講以前的事情（部分），移工看著 Google Map 懷念以前在高雄的事情，小恩能體會移工以前在高雄是很快樂的，但到了三峽感覺複雜很多。</p>
+                <p>之後開始常抱著一起睡，互相取暖。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">1/29</div>
+            <div class="entry-content">
+                <p>移工生日但很晚回來，帶移工去吃三商巧福生日餐。</p>
+                <p>移工很開心，雖然很累，他說很難得有人幫自己慶生。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">1/30</div>
+            <div class="entry-content">
+                <p>小恩路上車禍遇到三寶，移工主動關心小恩（剛好路過看到），開始兩個人一起吃晚餐，小恩準備晚餐給移工吃，開始整理房間煮飯搭伙，開始幫移工洗衣服。</p>
+                <p>發現移工房間很亂東西很少沒衣服，而且還有許多法院傳票，真的非常窮經濟拮据。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">1/31</div>
+            <div class="entry-content">
+                <p>小恩把雙人床整理出來，要移工跟自己每天一起睡。</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 二月 -->
+    <h2 class="section-title" id="feb">二月 — 了解彼此</h2>
+    <div class="timeline">
+
+        <div class="entry">
+            <div class="entry-date">2/1 – 2/9</div>
+            <div class="entry-content">
+                <p>開始發現移工很愛辣椒醬。移工堅持不按摩，身體很痛很緊，非常抗拒。</p>
+                <p>這段時間移工開始在小恩清理出來的雙人床睡覺，每天一起睡，通常都是小恩主動趴在移工胸懷中，為了表達愛意，希望移工能多講點自己的事情。</p>
+                <p>移工覺得小恩很重，畢竟移工只是 60 kg 的普通人，小恩是 92 kg 的肌肉男。移工常常靠北小恩常常弄痛他。</p>
+                <p>移工和小恩說他的渴望，離開中壢桃園是非之地，想跟小恩去大園住、同居等。</p>
+                <p>小恩這時候大概就知道，移工其實喜歡小恩，應該說愛。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">2/10</div>
+            <div class="entry-content">
+                <p>那天發生一件事情，移工沒有看到樓下的紅單，老闆侵入住宅進來要移工從小恩房間出去，老闆在走廊甩移工巴掌，移工哀嚎求饒，然後帶走被老闆軟禁在家，那天移工凌晨才回家，吃小恩準備的便當。</p>
+                <p>本來計畫要把移工弄去台南，發現老闆會有職場暴力，很可惡。</p>
+                <p>小恩跟老闆講電話講很久，老闆說明移工情況（後來發現是唬爛的）：</p>
+                <p>老闆聲稱移工住新北三峽跟爸爸一起住，移工認識壞朋友，欠博弈公司 30W，老闆自稱幫忙統整債務擋外債，還說自己是特殊兵種所以博弈公司不敢動他。老闆不斷灌輸移工，說他被盯上了，不可能有正常公司會收。</p>
+                <p>移工說他肩膀有傷剛縫起來，去年 11 月左右被人拿刀砍，會痛。</p>
+                <p>小恩告訴房東，並且嚴重告誡老闆不准進出，否則會提告侵入住宅。</p>
+                <p>老闆的說詞充滿矛盾與漏洞——前後金額不一致、聲稱的「保護」其實是控制。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">2/10（續）</div>
+            <div class="entry-content">
+                <div class="quote">
+                    小恩抱移工抱很緊、親移工、握移工手：「我知道你可能有些事情做錯了，被迫在老闆這工作，但是我很愛你，你總是說自己面對，可是我很心疼，雖然我看起來不會心疼因為我不會哭，但是我就是很愛你，我們以後一起面對，我負責內務，你負責好好工作好嘛？」
+                </div>
+                <p>移工答應小恩要好好面對。</p>
+                <p>移工他爸是非常大男人主義的人，不會聽進任何人的話，他媽生下他就回去越南了。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">2/11</div>
+            <div class="entry-content">
+                <p>初二之後小恩回台南，年後小恩確診，就很少跟移工聯絡，只有每天幫整理移工房間內務。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">2/23</div>
+            <div class="entry-content">
+                <p>催移工開始寫履歷，之後每天都催履歷，做換工作的準備。中間有一天跟移工聊天聊了很久，移工講自己的身世（真實的，非老闆掰的）——</p>
+                <p>移工在屏東車城長大，小三前在高雄鳳山，小三後就到三峽讀國小國中，高職是汽車科。移工認識一個乾哥（無血緣），移工有個弟弟是同父異母，移工是越南媽媽（生下移工就走了），爸爸娶了繼母是台灣人，後來離婚就把弟弟帶走到新莊生活。</p>
+                <p>移工跟乾哥很好，以前黏在一起，什麼事都在一起。移工高職肄業後去某自由貿易港區擔任理貨人員，每天工作喝掛，跟乾哥和同事。博弈公司移工自述欠款 14W，其他朋友款項只有 3W。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 三月 -->
+    <h2 class="section-title" id="mar">三月 — 逃亡與新生</h2>
+    <div class="timeline">
+
+        <div class="entry">
+            <div class="entry-date">3/1</div>
+            <div class="entry-content">
+                <p>移工忘記帶鑰匙，小恩強迫開門就要一起睡，就又開始回歸一起抱著睡覺了。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/2 – 3/7</div>
+            <div class="entry-content">
+                <p>之間就不斷催移工改履歷、戒菸。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/8</div>
+            <div class="entry-content">
+                <p>移工一直哭，說他有憂鬱症，小恩抱他抱很緊，說我們以後一起面對，我們一起回去高雄看看（移工每次想起高雄就很快樂看 Google Map），移工說他很想他媽，也想看看他媽怎麼樣，移工哭了大約 15 分鐘。</p>
+                <p>小恩質疑應該不到憂鬱症等級，但是可能因為生理因素壓力過大，影響神經傳導。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/10</div>
+            <div class="entry-content">
+                <p>移工開始使用助眠錠（小恩買的），因為會改善神經傳遞，鼾聲過兩三天降低很多，睡眠品質大幅提升。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">3/13（逃亡開始）</div>
+            <div class="entry-content">
+                <p>移工說他極度不想上班，且老闆說如果不去上班擺爛就開除他，移工決定要讓老闆開除他，因此躲在小恩房間都沒出來。</p>
+                <p>小恩剛回家，移工房間 A 房有四個人侵入住宅。</p>
+                <p>3 個人身分不多加贅述，都是從前移工的朋友，有個是他乾哥（但另外三個人都說那是他親哥，其實不是，是討債集團話術）。</p>
+                <p>三個人堅持說移工欠款 30W，也是討債集團的話術。小恩立馬報警並攝影威脅提告，過一段時間老闆上來。</p>
+                <p>老闆打給房東聲稱是保證人，移工沒有繳房租所以來找人。7 人將移工 A 房鎖住不讓他拿行李。</p>
+                <p>老闆說了很多討債集團的話術，小恩列出疑點：</p>
+                <p>1. 老闆說每月都有給移工薪資，但追問數次沒有講出確切金額，每次都不斷轉移話題。</p>
+                <p>2. 老闆說欠款 2 月底還清，現在變成 3 月底，卻還說沒還完。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">3/13（確認真相）</div>
+            <div class="entry-content">
+                <p>4 人結束後約 20 點小恩跟移工在房間確認實際情形：</p>
+                <p><strong>1.</strong> 老闆只有每天給移工 $200，$100 買菸，$100 移工偷存起來，老闆完全沒有給予移工工資。</p>
+                <p><strong>2.</strong> 實際上並沒有借款，是乾哥把人情給賣掉了。朋友間都會有吃飯或是買衣服不計較錢的時候，乾哥入幫派跟討債集團工作，討債集團不斷跟移工算以前的帳目，並以暴力脅迫，因此金額會一直浮動不固定，沒有還清的一天。</p>
+                <p>老闆基本上說詞全都在唬爛，是討債集團騙人的話術。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">3/14 凌晨（逃離）</div>
+            <div class="entry-content">
+                <p>小恩跟移工確認好時間，打算凌晨 2 點先變裝，將移工送往新竹，隔天早上搭火車回台南。</p>
+                <p>2 點前小恩已購入移工生活用品，並下樓多次確認 7 人都離開，穿小恩鞋子和外套變裝戴口罩，2 點訊號一到便騎往新竹。</p>
+                <p>十分順利抵達新竹，SIM 卡拔除，避免追查位址。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/14</div>
+            <div class="entry-content">
+                <p>前往台南小恩家公司，確認無法收留移工在家公司工作，理念不合，先將移工送往台南居住，並且先借款準備後續事宜。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/15（小恩生日）</div>
+            <div class="entry-content">
+                <p>一整天辦好：移工身分證、信用卡、印章，移工借數萬元繳納電信費以用於停話避免追查，以及借款購買新手機（加門號用小恩名字），舊手機已快無法使用。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">3/16（被追查）</div>
+            <div class="entry-content">
+                <p>早上 8 點，侵入住宅 4 人中有兩人抵達台南小恩家附近，擋住鄰居叔叔去路，鄰居叔叔報警，有影片，且被驅離。</p>
+                <p>隔壁叔叔說，2 人自己說是用移工舊手機定位找到的。</p>
+                <p>結束後小恩將移工舊手機丟進海中，前往關廟先避風頭，住一晚。</p>
+                <p>晚上去警察局偵查隊備案，才知道 Apple 手機如果被得知 Apple ID，可被定位明確位置，因此當下立馬將 Apple ID 改掉。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/17</div>
+            <div class="entry-content">
+                <p>早上在旅社觀察沒被追查到位置（移工提供討債集團朋友車號），確認安全了。</p>
+                <p>幫移工找新房簽契約，並且停話舊手機門號繳納款項，目前居住在附近方便照料。</p>
+                <p>晚上小恩高鐵回新竹騎機車回桃園，凌晨 3 點到家然後上班。</p>
+                <p>移工開始全新生活，切斷過往朋友所有聯絡。移工總欠款 7W，小恩媽說慢慢等他工作再跟他訂還款計畫。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/18</div>
+            <div class="entry-content">
+                <p>老闆和房東（桃園中壢）聲稱債主會找小恩算帳，但其實都在唬爛。確認移工房間物品全部被討債集團丟棄。</p>
+                <p>這天剛好小恩突然被資遣，從公司離職。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/19 – 3/20</div>
+            <div class="entry-content">
+                <p>幫移工整理行李、就業中心資源尋找，小恩也去就業中心申請補助。</p>
+                <p>小恩打電話給移工的伯母，想告知一下移工目前的狀況，但要隱藏多數移工跟小恩的身分，因為很有可能會被老闆查出位址。移工非常抗拒與伯母通話，小恩自己說服伯母。</p>
+                <p>伯母訴說：移工以前跟博弈公司欠款 8W 是他爸付的，之後移工就被他爸趕出家門自己生活。聽到移工認真工作感到很欣慰。</p>
+                <p>伯母也有勸過移工他爸的管教方式，讓任何人都感覺不到愛，移工因為孤獨當然會出走到處跟朋友混。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/21</div>
+            <div class="entry-content">
+                <p>小恩搭車回台南協助移工自理工作。移工對於辦事及社交較為害怕。跟移工去花園夜市約會。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/22</div>
+            <div class="entry-content">
+                <p>跟移工去就業中心詢問資源，超過 6 個月待業可參加就業中心 3W 尋職津貼計畫。</p>
+                <p>移工覺得小恩常常說愛你很吵。小恩生氣要拋下移工請他自己去處理事情，因為小恩覺得移工根本就不在乎小恩感受和處境，移工大哭非常害怕被拋下的感覺。</p>
+                <div class="quote">
+                    移工大哭小恩過去緊抱住他，原諒他。移工說他很在乎小恩，沒有小恩心裡會缺很大一塊，只是不知道怎麼跟男生表達。
+                </div>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/23</div>
+            <div class="entry-content">
+                <p>跟移工去海邊玩，帶移工去台南醫院胸腔科檢查，確定無胸腔骨骼受損，因為移工被老闆踹、被老闆打，胸痛超過兩周。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/24</div>
+            <div class="entry-content">
+                <p>跟移工去求籤——</p>
+                <p><strong>移工事業：</strong>目前不確定自己的喜好和方向，先了解自己後再去做。</p>
+                <p><strong>移工感情：</strong>整理好自己後順其自然。</p>
+                <p><strong>小恩事業：</strong>如果想轉職，破釜沉舟用心的做（資遣後想轉到軟體類）。</p>
+                <div class="quote">壬寅第五十籤：佛前發誓無異心，且看前途得好音，此物原來本是鐵，也能變化得成金。</div>
+                <p><strong>小恩感情：</strong>順其自然。</p>
+                <div class="quote">己酉第三十五首：此事何須用心機，前途變怪自然知，看看此去得知合，漸漸脫出見太平。</div>
+                <p>這次資遣是破例的機會，才有額外時間和移工相處，之後相處時間少之又少。</p>
+                <p>這天去國小，小恩跟移工和小朋友一起打躲避球，這是移工數個月內第一次運動。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/25</div>
+            <div class="entry-content">
+                <p>移工看朋友限時動態，有件過去判決的事情，判拘役 50 天，因此討論計畫 3/27 上台北去三峽老家拿法院文書。</p>
+                <p>事情大約是：某群人有債務糾紛使用槍械爭執，移工朋友（乾哥那群）去現場觀看助陣，移工走路去附近跟朋友聊天，被以社會秩序維護法一起逮捕並判刑。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/26</div>
+            <div class="entry-content">
+                <p>移工去衛生所進行健康檢查（$100），非勞工體檢，檢查完才發現搞錯。吃國姓橋土豆豬腳去霉氣。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/27</div>
+            <div class="entry-content">
+                <p>早上前往台南車站搭車，小恩在中壢下車騎機車，移工在桃園下車，小恩騎車載移工去三峽老家拿文書。管理室確實滿滿的法院文書、判決書和執行命令。</p>
+                <p>前往新北地檢署詢問：拘役 50 天是 4/10 執行，若提早申請需一般勞工體檢結果和居住證明，且如果發現不能通過，當天就要被拘役。決議先讓移工回台南申請文件，以及討論是否易科罰金。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/28</div>
+            <div class="entry-content">
+                <p>遠距離電話與小恩媽和移工討論拘役 50 天處理方法，討論的結果是易科罰金提早繳納後，馬上參加就業中心就職獎勵的計畫。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/29</div>
+            <div class="entry-content">
+                <p>小恩早上去就業中心忙完，13:00 到北車，移工原本車票坐自強號 13:00 到，結果沒看到人，移工說還在苗栗。小恩查到移工是坐後面的班次，15:00 才到，小恩多等 2 小時。小恩本來要放生以後不再見面，移工一直求小恩原諒。</p>
+                <p>15:00 小恩跟移工一起去新北地檢署，繳納完 5W 罰金後，移工只是道歉一下就玩手機自己走自己的，完全沒感受到他的在乎。</p>
+                <div class="dialogue">
+                    <p><strong>小恩：</strong>你哪裡在乎別屁啦，講個道歉就一直玩手機，應該要讓你痛一次人生都會記得要守時，還有事先講清楚。</p>
+                    <p><strong>移工（淚流滿面）：</strong>我就不知道怎麼表達，我真的很在乎你，我很擔心你會等很久，擔心會辦不到事情。</p>
+                    <p><strong>小恩：</strong>那你是不是要先事先打電話？所以失去我是什麼感覺？</p>
+                    <p><strong>移工：</strong>內心很大一塊都空了，被掏空的感覺，我很害怕。</p>
+                </div>
+                <p>小恩跟移工說我愛他，移工也說他也很愛小恩，移工很怕失去小恩。</p>
+                <p>後來去找移工以前認識的女性友人 A女（已結婚，有一個女兒），在蘆洲。A女提到移工以前的個性積極熱情，自從跟乾哥群認識後染上各種壞習慣，個性開始自我中心孤僻。A女勸過很多次移工離開乾哥群，但回頭有點晚了。移工很喜歡照顧小孩，手腳也很快。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">3/30</div>
+            <div class="entry-content">
+                <p>移工回台南，小恩回中壢。</p>
+                <p>3/30 – 4/5 移工滿懶散的，跟小恩約定 8 點起床常常都沒起床，也沒有常看小恩跟媽的訊息，小恩不斷告誡移工。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 四月 -->
+    <h2 class="section-title" id="apr">四月 — 重建生活</h2>
+    <div class="timeline">
+
+        <div class="entry">
+            <div class="entry-date">4/5（清明連假）</div>
+            <div class="entry-content">
+                <p>小恩從中壢到新竹回台南，移工又沒準時起床。晚上到移工家陪移工投履歷找工作。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">4/6</div>
+            <div class="entry-content">
+                <p>小恩跟移工和媽一起在麥當勞討論起床、生活費、生活上的問題。小恩媽有推薦工作，後來拒絕了。</p>
+                <p>三個人去關廟護生園區看很多動物。跟移工去買籃球吃晚餐，晚上去打籃球。這是移工數個月內第一次打籃球，移工說以前常常打。</p>
+                <p>小恩告誡移工要戒菸並去戒菸門診。移工以前都會說「能接受抽菸的人就會留下，不能接受的就會走」而且十分堅持。但移工這次馬上就答應了。</p>
+                <p>移工突然答應早起並且嘗試徹底改變，包含運動按摩等等。</p>
+                <div class="quote">移工是為了小恩改變嗎？移工沒有正面回應。是因為愛嗎？移工說是小恩一直唸很煩就要戒掉。小恩不太相信。可能愛吧。</div>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">4/7</div>
+            <div class="entry-content">
+                <p>到晚上之前都在跟國中朋友聚會，晚上跟移工打籃球。</p>
+                <p>問移工交往的問題，移工都沒有正面回應。移工認為小恩交往的對象不會選擇自己，妄自菲薄。</p>
+                <div class="quote">可是小恩已經愛移工了阿，為什麼不會選擇移工？移工認為兩個人在一起感覺是硬湊的很不搭，因為價值觀生活天差地遠。小恩覺得差異很大但能溝通能接受還可以，移工不太相信。</div>
+                <p>問移工愛不愛小恩，回答不知道。現階段移工跟小恩確實生活價值觀相差過大，且相處時間十分的少，因此小恩也認為不交往會更好，先將兩人的生活過好。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">4/8</div>
+            <div class="entry-content">
+                <p>早上面試，其他時間拿體檢報告。</p>
+                <p>移工收到新罰單（交通裁決通知書），有人借移工車牌裝在別台車上違規被拖吊，產生 $5000 左右的罰單，必須去高雄交通裁罰。同時移工的伯母（高雄的）癌症出院。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">4/9</div>
+            <div class="entry-content">
+                <p>早上戒菸門診、面試（獲得錄取通知，4/15 上工）。</p>
+                <p>戒菸門診完全不用錢，掛號費和健保自行負擔皆無，每周去拿藥（戒菸尼古丁貼片）。</p>
+                <p>計算戒菸貼片劑量時，才發現移工其實有偷偷戒菸。原本移工抽濃煙，前幾周改成抽較淡的煙，每天尼古丁含量從 16-20mg 降到 12mg，因此前幾周的懶散很可能是戒斷症狀。</p>
+                <div class="quote">有點感動，移工真的有心想改變自己。</div>
+                <p>移工貼完戒菸貼片情緒非常暴躁不舒服，小恩自己坐計程車去高鐵站讓移工休息，晚上小恩媽有送食物給移工吃關心移工。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">4/10 – 4/13</div>
+            <div class="entry-content">
+                <p>小恩回到中壢，就業中心辦事、幫移工寄出文件。</p>
+                <p>移工跟小恩仍不斷溝通還款細項等生活細節。</p>
+                <p>移工確認戒菸成功（4/12），第一天上班同事有給移工抽一兩根被小恩知道，強烈禁止後一根都不會抽，並且自己學會拒絕交際菸。</p>
+                <p>交通裁決通知書 4/12 已解決。小恩製作統計表約 $31,000 左右的罰單。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">4/14 – 4/17</div>
+            <div class="entry-content">
+                <p>移工明天開工，小恩準備就職、薪資計畫，以管理移工工作狀況及薪資。</p>
+                <p>幫移工持續下載新歌曲 mp3、製作移工在歸仁的美食地圖，希望移工去探索附近的生活環境。</p>
+                <p>移工一直以來有很嚴重的手汗問題，想做手汗手術很久了，但發現代償流汗的機率極高，因此作罷。</p>
+                <div class="quote">小恩表示，即使移工有手汗，仍會一直愛他牽他的手。</div>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">4/18 – 4/19</div>
+            <div class="entry-content">
+                <p>移工收到竊盜筆錄通知，4/29 計畫前來中壢製作筆錄。</p>
+                <p>小恩和移工一致認為必須提告過往那些侵入住宅等事實，因為那些人不會輕易放過移工，因此準備所有證據和資料，作為提告前準備。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">4/20</div>
+            <div class="entry-content">
+                <p>小恩去朋友家拿舊電腦給移工用，準備好包材和紙箱包裝寄送，包含些日常用品。</p>
+                <p>這天去移工三峽老家時，寫一封信給移工爸爸，主要是說服他爸的態度軟化。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">4/21 – 4/22</div>
+            <div class="entry-content">
+                <p>幫移工去二手商店撿鍋具，因為移工把小恩媽給移工的 3W 生活費花光了。持續準備提告前證據、自述、起訴書，以及撰寫履歷找工作。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">4/23 – 4/25（偷買點數事件）</div>
+            <div class="entry-content">
+                <p>發現移工用小額付費偷買點數共 $5,640，小恩非常生氣，將移工的薪資收起來保管，日後理財都是從小恩戶頭提領，並且去電信公司取消小額付費。</p>
+                <p>禁止任何購買，刪除任何外送平台及網路付款 app。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">4/26 – 4/27</div>
+            <div class="entry-content">
+                <p>小恩媽邀請移工去問事情（類似乩童），觀音媽強烈要求移工不要對侵入住宅那幾人提告，因為小恩有可能因為此提告產生危險。</p>
+                <p>因此本來討論好要提告，且證據已非常齊全，但後來先暫停，追溯期內隨時可以提告。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">4/28 – 4/29</div>
+            <div class="entry-content">
+                <p>移工到中壢準備做筆錄。移工自己裝得很聰明結果走錯站，害小恩等 15 分鐘曬大太陽。</p>
+                <p>關於竊盜的筆錄過程，偵辦員警不但沒有在另一方筆錄時確認基本資訊、偷竊的時間地點，筆錄也只是簡單詢問，在沒有確切任何人事時地物的狀況便隨意傳喚，不到 10 分鐘便結束。</p>
+                <p>筆錄後去淡水晃晃走走、吃吃到飽。</p>
+                <p>移工回憶說，當時小恩說可以請移工依賴小恩和小恩家（逃亡過程），當時移工心裡還是非常害怕，擔心依賴小恩會被出賣。</p>
+                <div class="quote">移工從小到大的付出，從家人、朋友、前女友，皆是被出賣且沒有人感激他、感謝他，背叛全部都是。</div>
+                <p>小恩說明，許多人都會有類似經歷，如沒有勇敢踏出舒適圈就不會獲得新的契機。</p>
+                <p>關於心理狀態平靜許多，移工也有訴說過往的社恐情況，在多人的環境會緊張心跳加速，現在改變了很多。</p>
+                <div class="quote">小恩揶揄，小恩大概是移工 21 歲人生中唯一遇到對的人，移工表示非常同意。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 五月 -->
+    <h2 class="section-title" id="may">五月 — 日常與磨合</h2>
+    <div class="timeline">
+
+        <div class="entry">
+            <div class="entry-date">5/1 – 5/3</div>
+            <div class="entry-content">
+                <p>跟小恩媽討論，小恩去辦銀行帳戶管理移工薪資。辦帳戶時被銀行行員和警察關切，因為移工跟小恩沒有血緣關係，行員和警察都覺得很像人頭帳戶，最後有成功辦理。</p>
+                <p>請移工寫母親節卡片給小恩媽，請他把小恩媽當成他媽的關係去經營。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">5/4</div>
+            <div class="entry-content">
+                <p>坐公車去移工三峽家拿法院文書。被老闆扣留的證件全部都還給移工了。首次跟移工爸講電話 30 秒。</p>
+                <p>跟警衛聊一陣子，早班的警衛不認識移工，但有聽說過這號人物，因為整個社區都很單純，滿滿的法院文書就是移工的名字。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">5/5 – 5/6</div>
+            <div class="entry-content">
+                <p>小恩去面試物流業。移工說物流大部分的人相處起來很舒服很直接，工作都會互相支援，說小恩如果想做物流就當作去玩去交朋友。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">5/7 – 5/14</div>
+            <div class="entry-content">
+                <p>移工偷買點數的欠款又出現一筆，小恩又生氣一次。</p>
+                <p>幾乎跟移工都是玩遊戲的互動。5/12 小恩騎車擦到護欄左腳流很多血去縫針，移工主動打電話關心。</p>
+                <p>之後移工的單子非常多，通常都很晚回家。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">5/15</div>
+            <div class="entry-content">
+                <p>Google 通知發現移工以前認識的人登入移工的 Google 帳戶，小恩取消該 IP 登入並更改密碼。移工把 IG 刪除幾乎所有追蹤者，留下 18 個人。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">5/24 – 5/30</div>
+            <div class="entry-content">
+                <p>移工生活習慣很混，每次下班之後都一直玩手機耍廢。小恩強迫移工要下班後規範，並指派移工去研究電商計畫，列出 6 點讓移工去弄：</p>
+                <p>1. 未來要販售的商品</p>
+                <p>2. 針對的客群？客群對應的需求？</p>
+                <p>3. 商品種類、成本</p>
+                <p>4. 電子商務經營模式</p>
+                <p>5. 倉儲及運送流程與成本</p>
+                <p>6. 廣告投放與成本</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 六月 -->
+    <h2 class="section-title" id="jun">六月 — 端午與離別</h2>
+    <div class="timeline">
+
+        <div class="entry">
+            <div class="entry-date">5/31 – 6/7</div>
+            <div class="entry-content">
+                <p>移工工作量開始增加，玩遊戲的互動漸漸減少。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">6/8 端午</div>
+            <div class="entry-content">
+                <p>晚上移工載小恩從高鐵站去歸仁。移工一直玩手機混到凌晨 3 點，頭髮指甲超長房間一團亂都沒整理，小恩非常生氣。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">6/9</div>
+            <div class="entry-content">
+                <p>早上 6 點小恩從移工房間走了，自己坐公車回去，告訴移工以後不再聯絡，今天以內還有機會。</p>
+                <p>媽一直幫移工講話，移工也說以後會改。下午請移工吃生魚片、買 AirPods、晚上燒肉吃到飽。睡覺前跟移工喝酒喝掛。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">6/10</div>
+            <div class="entry-content">
+                <p>移工工作，小恩幫移工開始整理房間，拆除箱子和新增二、三層櫃。中午幫移工送愛心午餐到公司。</p>
+                <p>中午撿到一隻斑鳩，幼鳥轉亞成鳥的階段，帶回家養。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">6/11</div>
+            <div class="entry-content">
+                <p>中午幫移工送愛心便當，歸仁的一家鴨肉飯，移工說很好吃。下午去林百貨附近甜點店。晚上整理好移工房間所有櫃子，餵斑鳩。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">6/12</div>
+            <div class="entry-content">
+                <p>移工休假。小恩整理完所有行李和移工房間。幫移工買肉粽。移工載小恩去火車站，中間去海安路請移工吃蜷尾家。小恩回中壢，移工回歸仁。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">6/13 – 6/22</div>
+            <div class="entry-content">
+                <p>小恩開始準備前端工程師的考試，移工每天加班到 12 點多，沒什麼聯絡。小恩前端工程師課程正取，非常忙碌，移工表示工作壓力很大，因此小恩寫好移工新履歷要求移工開始投履歷找工作。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">6/23</div>
+            <div class="entry-content">
+                <p>移工周末常常整天都睡覺，沒有自己的生活，小恩很生氣，訂出周末行程強迫移工一定要出門和找新工作。移工從來不會自己規劃行程自己出去玩或採買生活用品。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">6/24 – 7/1</div>
+            <div class="entry-content">
+                <p>小恩前端工程師開課，認識很多人。移工老闆一直說會有新的人進來補位但都沒有，移工持續忙碌每天超過 12 小時。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 七月 -->
+    <h2 class="section-title" id="jul">七月 — 親密與拉扯</h2>
+    <div class="timeline">
+
+        <div class="entry">
+            <div class="entry-date">7/2 – 7/13</div>
+            <div class="entry-content">
+                <p>移工公司有新人來，移工開始教新人。看到移工前老闆出來倒垃圾。跟移工沒什麼聯絡。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">7/14</div>
+            <div class="entry-content">
+                <p>移工喝酒喝斷片，而且一直整天睡覺都沒有出門，藉口是下大雨，連工作都沒有投，小恩非常生氣。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">7/15</div>
+            <div class="entry-content">
+                <p>最後一次警告，如果不主動找工作和規劃周末行程，周末仍然繼續睡覺一整天，會直接斷絕聯絡。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">7/19 – 7/21</div>
+            <div class="entry-content">
+                <p>移工來中壢。小恩請移工吃飯。兩人感情更加親密，開始有更深入的肢體接觸。</p>
+                <p>中午去山鼻小鹿，下午吃天下奇冰。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">7/22 – 7/31</div>
+            <div class="entry-content">
+                <p>主要是生活上一些事情提點，弄租屋補助、工作面試等等。移工工作被壓榨，因此不斷找工作。</p>
+                <p>周末強迫移工每周出門散心，移工持續半夜才下班。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 八月 -->
+    <h2 class="section-title" id="aug">八月 — 工作轉換</h2>
+    <div class="timeline">
+
+        <div class="entry">
+            <div class="entry-date">8/1 – 8/4</div>
+            <div class="entry-content">
+                <p>新工作機會：移工在歸仁認識 711 大夜店員，被告知有任職機會，因此在準備，順便面試兼職工作。</p>
+                <p>移工承租的房間是違建，申請租屋補助有問題。周末移工主動去找布丁阿諾（狗狗）洗澡培養感情。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">8/5 – 8/7（員購酒事件）</div>
+            <div class="entry-content">
+                <p>移工薪資單出來，小恩非常生氣，移工員購酒花 $3,000 多，每天一瓶酒。小恩強迫移工戒酒，只有周末可以喝一瓶。</p>
+                <p>另外移工被小恩發現又繼續跟乾哥有聯絡，媽也覺得非常不妥當，小恩要求封鎖任何有關過去人物的聯絡方式。</p>
+                <p>移工有寫悔過書，向媽跟小恩保證以後絕對不碰酒（除了周末小酌）。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">8/8 – 8/18</div>
+            <div class="entry-content">
+                <p>移工仍然每天工作到凌晨，並且面試兼職工作。教移工練習談薪資問題。</p>
+                <p>檢舉移工去面試的違法公司——人力銀行開 4W 起薪，面試實際只有 $29,000。</p>
+                <p>跟移工一起申請租屋補助事項。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">8/21 – 8/26</div>
+            <div class="entry-content">
+                <p>移工被正式資遣，小恩打電話過去公司幹完人資和主管，移工主管本來不給資遣費，後來給了。</p>
+                <p>移工 711 大夜班工作面試上了，移工以後都是做 711 大夜班。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">8/27 – 8/30</div>
+            <div class="entry-content">
+                <p>和移工整理堆高機課程、移工也順便調時差，以後要上大夜班。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">8/31 – 9/13</div>
+            <div class="entry-content">
+                <p>日常，請移工有時間看書還有寫作業（小恩教移工 Word/Excel），小恩有準備好中英文教材和手寫的筆記要給移工有空看書重新學習。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 九月 -->
+    <h2 class="section-title" id="sep">九月 — 中秋與課程</h2>
+    <div class="timeline">
+
+        <div class="entry">
+            <div class="entry-date">9/13 – 9/14（中秋連假）</div>
+            <div class="entry-content">
+                <p>小恩從高鐵回來，發現移工歸仁房間跟垃圾山一樣、頭髮沒剪、垃圾桶有菸，但移工堅持自己沒有抽菸。小恩幫移工整理房間並配置最好的營養品。</p>
+                <p>小恩發現移工從 711 換工作沒有告知小恩跟小恩媽，後來追到別的公司才知道，移工覺得換工作沒什麼所以沒告知，欺騙小恩跟小恩媽。</p>
+                <p>那天移工表現非常糟糕，後來道歉，晚上才一起去剪頭髮吃飯。晚上帶移工去燒烤店吃飯。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">9/15</div>
+            <div class="entry-content">
+                <p>小恩跟小恩媽和移工去打邊爐，媽跟移工一直勸說希望能找到更好的工作。健恩要繼續上資展的課程，所以只能遠距離每天叮嚀。移工也說好要努力戒菸和找好工作。</p>
+                <p>後來去海邊跟布丁阿諾玩，小恩晚上坐車回中壢了。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">9/15 – 9/28</div>
+            <div class="entry-content">
+                <p>移工生活費不夠吃東西，小恩偷偷網購泡麵和食材給移工吃，但移工都沒有很愛吃即使很餓，還會挑剔。</p>
+                <p>小恩強迫移工要自己去家樂福逛逛補貨，養成好習慣，但移工都一直嫌懶。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 十月 -->
+    <h2 class="section-title" id="oct">十月 — 失望與掙扎</h2>
+    <div class="timeline">
+
+        <div class="entry">
+            <div class="entry-date">9/29 – 10/14</div>
+            <div class="entry-content">
+                <p>移工沒工作沒生活費，每周有 $2,000 由小恩媽媽支付。小恩有偷偷多幫移工買衣服之類的，逼得有點緊但移工經濟有困難。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">10/15</div>
+            <div class="entry-content">
+                <p>被小恩抓到偷跟乾哥聯絡，小恩跟小恩媽媽都很生氣，因為很危險。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">10/15 – 10/20</div>
+            <div class="entry-content">
+                <p>移工花錢速度異常的快，但堅持不說做了什麼事情，生活費越撥越少因為移工不坦承。小恩每天上資展的課還要煩惱移工。</p>
+                <p>19 號小恩去三峽幫移工拿法院文件發現有傳票，緊急請移工請假來法院。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">10/21 – 10/23（移工法院行程）</div>
+            <div class="entry-content">
+                <p>晚上先去中壢小恩房間住，兩人一起相處。</p>
+                <p>22 號去法院後，去喝酒吃炸雞。23 號早上去找蘆洲的 A女 和她小孩玩。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">10/24 – 11/7</div>
+            <div class="entry-content">
+                <p>移工這陣子一直在找工作薪資不穩定，小恩要不斷幫移工調整薪資和生活費很累，而且移工花錢突然如流水，生活費完全不夠用。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 十一月 -->
+    <h2 class="section-title" id="nov">十一月 — 最後通牒</h2>
+    <div class="timeline">
+
+        <div class="entry highlight">
+            <div class="entry-date">11/8</div>
+            <div class="entry-content">
+                <p>小恩跟小恩媽的最後通牒，給移工最後的生活費，讓移工自己管理一個禮拜，每天都要拍鈔票的照片回報，然後去新工作上班。移工嘴巴說好但好像有點異常。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">11/9 – 11/15</div>
+            <div class="entry-content">
+                <p>移工到新工作上班。請移工每天拍照生活費鈔票，移工一直說不會亂花所以就沒拍。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">11/17 – 11/22</div>
+            <div class="entry-content">
+                <p>移工說他回歸仁拿東西一趟，但實際上並不是，不知道去哪裡，而且錢花得很快。移工不太接電話。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">11/24</div>
+            <div class="entry-content">
+                <p>謊言爆了，統計下來一周花 $4,000 不知道花去哪裡，這天開始確定移工要搬家了。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">11/26 – 11/28（請假事件）</div>
+            <div class="entry-content">
+                <p>11/26 移工說身體不適請假發燒。</p>
+                <p>11/27 小恩媽接到派遣公司電話，說移工沒去上班無故曠職。</p>
+                <p>11/28 移工說不舒服要再去看醫生拿請假證明，但電話有風聲，說自己證明被風吹走了要去撿。追問位置發現移工很可能根本沒去看醫生。最後派遣公司依照規定資遣移工。</p>
+                <div class="quote">小恩跟小恩媽很失望，認真拚死拚活救起來的人，花了一堆錢希望他重生，結果竟然背叛不信任。小恩媽當初也是因為看移工老實而且很認真，想不到換回卻是這樣的回報。</div>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">11/29 – 12/9</div>
+            <div class="entry-content">
+                <p>小恩跟小恩媽開始非常嚴密的盯緊移工的錢花到哪去，但結果總是令人失望的，移工花錢都花光了（約 2W），小恩跟小恩媽實際上很難過。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 十二月 -->
+    <h2 class="section-title" id="dec">十二月 — 回歸高雄</h2>
+    <div class="timeline">
+
+        <div class="entry">
+            <div class="entry-date">12/10</div>
+            <div class="entry-content">
+                <p>移工開始確定要搬出去，小恩媽把剩餘的租金繳完，宣告移工要搬回去高雄，移工也開始聯絡高雄的親人。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">12/11 – 12/22（搬回高雄）</div>
+            <div class="entry-content">
+                <p>11 號是小恩主動跑去移工家，然後聯繫他家裡的人，因為移工都不理小恩。</p>
+                <p>搬家那天，移工姊和阿姨聊了很多移工以前的事情，移工家裡很不溫暖，小三以前是他姊和阿姨帶的，他們家的人都很好很熱心，姊跟阿姨都很遺憾為什麼戎狄會變成這樣？</p>
+                <p>移工莫名的對小恩態度惡劣，一直找事情吵，小恩不了解為什麼。</p>
+                <p>房東這時候說，移工在 11 月底 – 12 月初半夜都會出門不知道去哪裡，而且聯合房東騙小恩和小恩媽有繳房租，真的大家都很失望。</p>
+                <div class="quote">他姊也說，她對移工後來很失望，做太多很失望的事情，所以回高雄也不會多關注他了。</div>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">12/23</div>
+            <div class="entry-content">
+                <p>因為移工一直不回應門號轉移，小恩直接申請新 SIM 卡把 LINE 門號移除。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">12/23 – 12/30</div>
+            <div class="entry-content">
+                <p>（新 LINE 對話開始）移工在高雄新竹貨運工作，沒機車每天腳踏車上下班。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2025 -->
+    <h2 class="section-title" id="y2025">2025 — 緩慢修復</h2>
+    <div class="timeline">
+
+        <div class="entry">
+            <div class="entry-date">2025/2/1</div>
+            <div class="entry-content">
+                <p>小恩去移工家給移工禮物和出去喝酒。</p>
+                <p>生日禮物：USB 隨身碟（內裝歌單全部歌曲）、防風手套（可能不會流手汗）、行動電源，還有送移工烏薩奇，希望他能想起以前溫暖的感覺。</p>
+                <p>但是移工就一直想要吵架，心情很焦躁。而且移工都不會對家人和小恩好，讓人看了很諷刺，真正對他好的人都是被他忽略當成理所當然的。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">2025/2/3</div>
+            <div class="entry-content">
+                <p>小恩去高雄看吉伊卡哇，找移工喝酒出去晃晃，移工還是對小恩很反感很膩不知道為何。</p>
+                <p>移工從 11 月起開始對小恩和小恩媽不斷的逃避，而且態度惡劣，而且我行我素。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">2025/5/18</div>
+            <div class="entry-content">
+                <p>移工對小恩態度一樣很惡劣，不知為何，而且很容易生氣。這天小恩強迫移工跟小恩媽重新連繫。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">2025/5/20</div>
+            <div class="entry-content">
+                <p>移工的 IG 被盜，然後莫名打電話給小恩說是小恩盜用他帳號，其實根本不是。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">2025/6/12</div>
+            <div class="entry-content">
+                <p>移工開始恢復正常，願意跟小恩講他還多少錢跟生活上的事情。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">2025/8/11</div>
+            <div class="entry-content">
+                <p>移工開始會跟小恩講電話，而且態度也和緩很多，會傳貼圖等等，跟以往不一樣，繼續跟小恩日常打屁。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">2025/9/8</div>
+            <div class="entry-content">
+                <p>移工跟小恩分享工作，主動討論工作如何，這是移工從 2024-11 月底變異常後主動心情好跟小恩打電話討論工作。</p>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-date">2025/10/5</div>
+            <div class="entry-content">
+                <p>移工分享 A女 拋家棄子去大陸找直播主的荒唐事件，少數跟移工聊很久。A女 原本跟移工很好也有常請移工吃飯出去玩。</p>
+                <div class="quote">這次的分享，小恩朋友們都覺得很難得，移工變好了。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2026 -->
+    <h2 class="section-title" id="y2026">2026 — 新的契機</h2>
+    <div class="timeline">
+
+        <div class="entry">
+            <div class="entry-date">2026/2 月 過年</div>
+            <div class="entry-content">
+                <p>農曆過年有討論移工要不要找小恩，但都一直很排斥中壢，後來移工說同事要帶他去台北一周，包含拜年等等，所以錯過了。</p>
+            </div>
+        </div>
+
+        <div class="entry highlight">
+            <div class="entry-date">2026/3/26</div>
+            <div class="entry-content">
+                <p>移工說他有女友了，是個經濟條件不好的女友，收入很不穩定。</p>
+                <p>小恩非常反對移工跟對方在一起，一方面經濟問題（移工生活費和薪資幾乎是月光），一方面也可能會意外生小孩。移工覺得沒差。</p>
+                <div class="quote">兩個寂寞的人是不會有愛的。</div>
+                <p>移工雖然有存幾萬元，但是很大機率會入不敷出。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 尾聲 -->
+    <h2 class="section-title" id="end">尾聲 — 最後的救贖</h2>
+    <div class="timeline">
+
+        <div class="entry highlight">
+            <div class="entry-date">2026/3 月底</div>
+            <div class="entry-content">
+                <p>小恩訂了一個最後的契約，給移工一周考慮，讓移工有機會可以翻身，以及真正解決過去的嚴重問題。</p>
+
+                <div class="contract">
+                    <h3>戎狄來中壢工作與健恩生活同居契約</h3>
+                    <p style="color:var(--text-light);margin-bottom:12px">前提：必須帶著徹底改變和穩定的心境來中壢生活，不可以今天脾氣來了就改變東改變西。</p>
+                    <ol>
+                        <li>房租：每個月分擔合理房租金額</li>
+                        <li>水電費：每三個月一次，戎狄只需付 1/3</li>
+                        <li>如果來中壢工作一個月內沒找到工作，健恩可負擔必要的生活費吃住免費</li>
+                        <li>不可以找無技術性的工作，必須養成有技術性的工作或可學習固定流程的工作，且必須認真修改履歷和學習面試技巧</li>
+                        <li>必須盡量和健恩培養興趣，例如一起運動、採購生活用品、學投資理財、職業性向的探索、生活興趣探索，包含日常文書軟體學習</li>
+                        <li>必須要學習面對自己的價值觀和過去，要和健恩坦誠以對，花時間靜下心來散步或是聊天，認真去改善價值觀</li>
+                        <li>搬來一起住必須要認真解決需求，以培養真實感情厚度為首要前提</li>
+                        <li>要用開放的心態去和健恩探索世界，不可以主觀認為很無聊就拒絕</li>
+                        <li>上面如果沒有誠意達到，就送回高雄</li>
+                    </ol>
+                </div>
+
+                <div class="quote">
+                    一周的時間讓移工考慮。這次應該是最後的救贖，如果移工不答應很可能就會斷絕以後的聯絡。故事就到此告終。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>這是一段真實的經歷紀錄。部分個人資訊已隱藏保護當事人。</p>
+        <p style="margin-top:8px">小恩 & 戎狄的故事 — 2024 紀實</p>
+    </div>
+
+</main>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Back to top button
+window.addEventListener('scroll', () => {
+    document.getElementById('backTop').classList.toggle('show', window.scrollY > 400);
+});
+
+// Nav active state
+const sections = document.querySelectorAll('.section-title, #intro');
+const navLinks = document.querySelectorAll('.nav-bar a');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.id;
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+            });
+        }
+    });
+}, { rootMargin: '-80px 0px -80% 0px' });
+
+sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
