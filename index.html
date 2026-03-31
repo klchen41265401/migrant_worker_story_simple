@@ -30,6 +30,20 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        /* Progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #E8734A, #F4A261);
+            z-index: 9999;
+            transition: width 0.1s linear;
+            border-radius: 0 2px 2px 0;
+            box-shadow: 0 0 8px rgba(232,115,74,0.5);
+        }
+
         body {
             font-family: 'Noto Sans TC', sans-serif;
             background: var(--bg);
@@ -315,6 +329,8 @@
     </style>
 </head>
 <body>
+
+<div class="progress-bar" id="progressBar"></div>
 
 <header class="hero">
     <h1>與移工認識的經過</h1>
@@ -1333,8 +1349,12 @@
 <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-// Back to top button
+// Progress bar & back to top
 window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    document.getElementById('progressBar').style.width = progress + '%';
     document.getElementById('backTop').classList.toggle('show', window.scrollY > 400);
 });
 
