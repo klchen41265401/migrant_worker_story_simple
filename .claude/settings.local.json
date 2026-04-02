@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \":*)",
+      "Bash(python -c \":*)",
+      "Bash(python -c \"import PyPDF2; print\\(''ok''\\)\")",
+      "Bash(python -c \"import pdfplumber; print\\(''ok''\\)\")",
+      "Bash(python -c \"import fitz; print\\(''ok''\\)\")",
+      "Bash(pip install:*)",
+      "Bash(where python:*)",
+      "Bash(C:UsersUserAppDataLocalProgramsPythonPython311python.exe -m pip install PyPDF2)",
+      "Bash(\"C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python311\\\\python.exe\" -c \":*)",
+      "Bash(\"C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python311\\\\python.exe\" -X utf8 -c \":*)",
+      "Bash(gh auth:*)",
+      "Bash(git config:*)"
+    ]
+  }
+}
