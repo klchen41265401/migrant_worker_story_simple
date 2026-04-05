@@ -337,6 +337,422 @@
         opacity: 1;
       }
 
+      /* Collapsible sections */
+      details {
+        background: var(--card);
+        border-radius: 12px;
+        padding: 0;
+        box-shadow: var(--shadow);
+        margin-bottom: 20px;
+        overflow: hidden;
+      }
+      details summary {
+        padding: 16px 24px;
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--accent);
+        font-size: 1.05rem;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        user-select: none;
+        transition: background 0.2s;
+      }
+      details summary:hover {
+        background: var(--accent-light);
+      }
+      details summary::before {
+        content: '▶';
+        font-size: 0.75rem;
+        transition: transform 0.2s;
+        display: inline-block;
+      }
+      details[open] summary::before {
+        transform: rotate(90deg);
+      }
+      details .details-content {
+        padding: 0 24px 24px;
+      }
+      details .details-content p {
+        margin-bottom: 8px;
+        color: var(--text);
+      }
+
+      .cycle-box {
+        background: #f7f5f2;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 16px 0;
+        font-family: monospace;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        white-space: pre-wrap;
+      }
+
+      .warning-box {
+        background: #fff5f5;
+        border-left: 4px solid #c53030;
+        border-radius: 0 12px 12px 0;
+        padding: 16px 20px;
+        margin: 16px 0;
+      }
+      .warning-box p {
+        color: #c53030;
+      }
+
+      /* Analysis section */
+      .analysis-section {
+        margin-top: 60px;
+        padding-top: 48px;
+        border-top: 3px dashed var(--border);
+        scroll-margin-top: 60px;
+      }
+      .analysis-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--tag-blue);
+        color: var(--tag-blue-text);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.82rem;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+      .analysis-disclaimer {
+        background: var(--tag-yellow);
+        color: var(--tag-yellow-text);
+        padding: 14px 20px;
+        border-radius: 10px;
+        font-size: 0.85rem;
+        margin-bottom: 28px;
+        line-height: 1.7;
+      }
+      .analysis-card {
+        background: var(--card);
+        border-radius: 14px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+        margin-bottom: 24px;
+        border-left: 4px solid #4299e1;
+      }
+      .analysis-card h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #2b6cb0;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .analysis-card p {
+        color: var(--text);
+        margin-bottom: 10px;
+      }
+      .analysis-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 14px 0;
+        font-size: 0.92rem;
+      }
+      .analysis-table thead th {
+        background: #ebf4ff;
+        color: #2b6cb0;
+        padding: 12px 16px;
+        text-align: left;
+        font-weight: 600;
+        border-bottom: 2px solid #bee3f8;
+      }
+      .analysis-table tbody td {
+        padding: 11px 16px;
+        border-bottom: 1px solid var(--border);
+        color: var(--text);
+        vertical-align: top;
+      }
+      .analysis-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+      .analysis-table tbody tr:nth-child(even) {
+        background: #f7fafc;
+      }
+      .analysis-table tbody tr:hover {
+        background: #ebf8ff;
+      }
+      .cycle-flow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
+      }
+      .cycle-step {
+        background: var(--card);
+        border: 2px solid #bee3f8;
+        border-radius: 12px;
+        padding: 14px 18px;
+        text-align: center;
+        min-width: 130px;
+        max-width: 180px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      }
+      .cycle-step .step-num {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: #4299e1;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .cycle-step .step-title {
+        font-weight: 600;
+        color: #2d3748;
+        font-size: 0.9rem;
+        margin-bottom: 3px;
+      }
+      .cycle-step .step-desc {
+        font-size: 0.78rem;
+        color: var(--text-light);
+      }
+      .cycle-arrow {
+        font-size: 1.3rem;
+        color: #a0aec0;
+        padding: 0 4px;
+      }
+      .prognosis-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 14px;
+      }
+      .prognosis-box {
+        border-radius: 10px;
+        padding: 18px;
+        font-size: 0.88rem;
+      }
+      .prognosis-box.negative {
+        background: var(--tag-red);
+        border: 1px solid #fed7d7;
+      }
+      .prognosis-box.negative h4 {
+        color: var(--tag-red-text);
+        margin-bottom: 8px;
+        font-size: 0.92rem;
+      }
+      .prognosis-box.positive {
+        background: var(--tag-green);
+        border: 1px solid #c6f6d5;
+      }
+      .prognosis-box.positive h4 {
+        color: var(--tag-green-text);
+        margin-bottom: 8px;
+        font-size: 0.92rem;
+      }
+      .prognosis-box ul {
+        padding-left: 18px;
+        color: var(--text);
+      }
+      .prognosis-box ul li {
+        margin-bottom: 5px;
+      }
+      .analysis-conclusion {
+        background: linear-gradient(135deg, #ebf4ff 0%, #f0fff4 100%);
+        border-radius: 14px;
+        padding: 28px;
+        margin-top: 24px;
+        border: 1px solid #bee3f8;
+      }
+      .analysis-conclusion h3 {
+        color: #2b6cb0;
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+      }
+      .analysis-conclusion p {
+        color: var(--text);
+        margin-bottom: 10px;
+      }
+      .analysis-conclusion p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Version toggle */
+      .version-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 28px;
+        padding: 16px;
+        background: var(--card);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+      .version-toggle-label {
+        font-size: 0.88rem;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 8px 18px;
+        border-radius: 24px;
+        transition: all 0.3s;
+        user-select: none;
+      }
+      .version-toggle-label.neutral {
+        color: #2b6cb0;
+        background: #ebf4ff;
+      }
+      .version-toggle-label.savage {
+        color: #9b2c2c;
+        background: #fff5f5;
+      }
+      .version-toggle-label.ultimate {
+        color: #1a1a2e;
+        background: #e2e8f0;
+      }
+      .version-toggle-label.active.neutral {
+        background: #2b6cb0;
+        color: white;
+        box-shadow: 0 2px 8px rgba(43, 108, 176, 0.3);
+      }
+      .version-toggle-label.active.savage {
+        background: #c53030;
+        color: white;
+        box-shadow: 0 2px 8px rgba(197, 48, 48, 0.3);
+      }
+      .version-toggle-label.active.ultimate {
+        background: #1a1a2e;
+        color: #f6e05e;
+        box-shadow: 0 2px 12px rgba(26, 26, 46, 0.5);
+      }
+      .analysis-card.savage-card {
+        border-left-color: #c53030;
+      }
+      .analysis-card.savage-card h3 {
+        color: #9b2c2c;
+      }
+      .analysis-table.savage-table thead th {
+        background: #fff5f5;
+        color: #9b2c2c;
+        border-bottom-color: #fed7d7;
+      }
+      .analysis-table.savage-table tbody tr:nth-child(even) {
+        background: #fffafa;
+      }
+      .analysis-table.savage-table tbody tr:hover {
+        background: #fff5f5;
+      }
+      .savage-conclusion {
+        background: linear-gradient(135deg, #fff5f5 0%, #fffaf0 100%);
+        border-radius: 14px;
+        padding: 28px;
+        margin-top: 24px;
+        border: 1px solid #fed7d7;
+      }
+      .savage-conclusion h3 {
+        color: #9b2c2c;
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+      }
+      .savage-conclusion p {
+        color: var(--text);
+        margin-bottom: 10px;
+      }
+      .savage-conclusion p:last-child {
+        margin-bottom: 0;
+      }
+      .savage-highlight {
+        background: #fff5f5;
+        border-left: 3px solid #c53030;
+        padding: 12px 16px;
+        margin: 12px 0;
+        border-radius: 0 8px 8px 0;
+        color: #9b2c2c;
+        font-weight: 500;
+      }
+      /* Ultimate savage version */
+      .analysis-card.ultimate-card {
+        border-left-color: #1a1a2e;
+        background: #0f0f1a;
+        color: #e2e8f0;
+      }
+      .analysis-card.ultimate-card h3 {
+        color: #f6e05e;
+      }
+      .analysis-card.ultimate-card p {
+        color: #cbd5e0;
+      }
+      .analysis-table.ultimate-table {
+        border: 1px solid #2d3748;
+      }
+      .analysis-table.ultimate-table thead th {
+        background: #1a1a2e;
+        color: #f6e05e;
+        border-bottom-color: #2d3748;
+      }
+      .analysis-table.ultimate-table tbody td {
+        background: #0f0f1a;
+        color: #e2e8f0;
+        border-bottom-color: #2d3748;
+      }
+      .analysis-table.ultimate-table tbody tr:nth-child(even) td {
+        background: #1a1a2e;
+      }
+      .analysis-table.ultimate-table tbody tr:hover td {
+        background: #2d3748;
+      }
+      .ultimate-conclusion {
+        background: linear-gradient(135deg, #1a1a2e 0%, #2d1f3d 100%);
+        border-radius: 14px;
+        padding: 28px;
+        margin-top: 24px;
+        border: 1px solid #4a3860;
+      }
+      .ultimate-conclusion h3 {
+        color: #f6e05e;
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+      }
+      .ultimate-conclusion p {
+        color: #e2e8f0;
+        margin-bottom: 10px;
+      }
+      .ultimate-conclusion p:last-child {
+        margin-bottom: 0;
+      }
+      .ultimate-highlight {
+        background: #1a1a2e;
+        border-left: 3px solid #f6e05e;
+        padding: 12px 16px;
+        margin: 12px 0;
+        border-radius: 0 8px 8px 0;
+        color: #f6e05e;
+        font-weight: 500;
+      }
+      .ultimate-highlight strong {
+        color: #fc8181;
+      }
+
+      @media (max-width: 640px) {
+        .prognosis-split {
+          grid-template-columns: 1fr;
+        }
+        .cycle-flow {
+          flex-direction: column;
+        }
+        .cycle-arrow {
+          transform: rotate(90deg);
+        }
+        .analysis-card {
+          padding: 20px;
+        }
+        .version-toggle {
+          flex-wrap: wrap;
+        }
+      }
+
       /* RWD */
       @media (max-width: 640px) {
         .hero {
@@ -382,6 +798,7 @@
 
     <nav class="nav-bar" id="nav">
       <a href="#intro">前情提要</a>
+      <a href="#backstory">人物側寫</a>
       <a href="#jan">一月</a>
       <a href="#feb">二月</a>
       <a href="#mar">三月（逃亡）</a>
@@ -396,7 +813,9 @@
       <a href="#dec">十二月</a>
       <a href="#y2025">2025</a>
       <a href="#y2026">2026</a>
+      <a href="#y2026apr">2026四月</a>
       <a href="#end">尾聲</a>
+      <a href="#analysis">心理分析</a>
     </nav>
 
     <main class="container">
@@ -417,6 +836,185 @@
           </div>
         </div>
       </section>
+
+      <!-- 人物側寫 -->
+      <h2 class="section-title" id="backstory">人物側寫 — 移工的過去</h2>
+      <p style="color: var(--text-light); margin-bottom: 20px">
+        以下是移工自述過去的事情或是一些跡象觀察（2024-01
+        認識移工以前發生的事情）
+      </p>
+
+      <details>
+        <summary>移工爸</summary>
+        <div class="details-content">
+          <p>
+            移工爸很早以前就管他管得非常嚴厲，就移工的口述，他被限制的每天兩點一線，只能在三峽市區活動，每天長時間待在家裡悶著（沒有原因，他爸也沒有催他念書），移工
+            17 歲以前都這樣過生活。
+          </p>
+          <p>
+            他爸是個追求穩定的人，以前到現在工作就是做防火門（在三峽），並且時常去宮廟拜拜。
+          </p>
+          <p>
+            17 歲那年移工被趕出家門，是因為移工爸幫移工還 $80,000
+            的賭債（黑道到家討債），而且結交乾哥那群朋友（都是黑道份子）。
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>移工姊 / 阿ㄇ（伯母）</summary>
+        <div class="details-content">
+          <p>
+            從小三前就照顧移工，以前狀況很好，很乖巧很有愛，只是移工以前失戀的時候每天都在哭＋狂喝酒，聽起來是個敏感纖細的孩子。
+          </p>
+          <p>
+            移工姊 /
+            阿ㄇ他們家族是很有愛的存在，會幫家族其他成員顧小孩成長，所以他們培養出來的孩子都很正常乖巧，常帶小孩子出去玩陪伴等等，這是非常特殊的存在。E跟E媽在
+            2024 年底移工要從台南搬回去高雄住的時候，聽他們講才知道。
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>❤️ 西門前女友（移工最愛的女友）</summary>
+        <div class="details-content">
+          <p>
+            移工非常的愛他西門的前女友。他們感情非常親密，在未成年時期就開始交往。
+          </p>
+          <p>
+            那時候移工在大園工作，做機場相關的工作，薪水收入很不錯，然後他每天都騎機車去西門找他前女友。
+          </p>
+          <p>
+            他前女友是賣小餐車的，就是在西門常常會跑來跑去的路邊攤。他們家原本一開始是賣水餃的。那時候移工一直拼命的工作存錢，並且承諾他媽媽會想辦法以後照顧他，想辦法娶他。
+          </p>
+          <p>
+            E很確定移工是很愛他西門的前女友，那是因為他那時候的眼神，還有他照片以前的事情其實都可以很明確的說——他想跟這個女生共築未來。
+          </p>
+          <p>
+            那時候移工就是發揮他家裡的本領，會幫她準備便當餐盒或者是照顧得無微不至，他幾乎整個人都已經奉獻給他們家了。
+          </p>
+          <div class="quote">為什麼移工會跟他前女友分手？</div>
+          <p>
+            那時候有一次跨年，移工跟他前女友約好，可是他前女友有事會慢一點。他乾哥那群人開玩笑說如果跟他說分手會怎樣，結果移工就講分手。移工喝酒喝到掛隔天才接到電話，然後他前女友就確定跟他分手了。
+          </p>
+          <p>
+            E有問移工說為什麼不要去挽回她，他就說拉不下面子。之後移工去高雄，大概兩三個月，幾乎每天都在高雄喝酒，很難過。但移工還是選擇逃避。
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>🪳 高雄前女友</summary>
+        <div class="details-content">
+          <p>據E所知，高雄前女友好像是他第一任的女友（時間線待確認）。</p>
+          <p>
+            這個女友的描述就很少，E覺得他不愛這個女友。他沒有跟這個女友提到有關未來的事情，只說她很漂亮。分手之後，移工在高雄的家每天都在哭，每天都喝酒喝到掛。
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>三峽的某個前女友</summary>
+        <div class="details-content">
+          <p>
+            他有個前女友（但是移工都不斷汙衊她說誰不知道她在三峽名聲很臭），他沒什麼愛的。有幫助過移工的生活（辦手機門號繳費、租屋、代墊一些錢），預計有
+            $20,000。
+          </p>
+          <p>
+            但移工不斷汙衊她，不了解她到底為移工做了什麼。移工沒跟她上床過，移工都常常說她是好哥們，但其實兩人有床上親密合照（沒做愛，這點確認）。移工很堅持是曖昧（就跟移工堅持E跟他是曖昧一樣）。
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>🐖 阿庭家跟阿庭她妹（草莓）</summary>
+        <div class="details-content">
+          <p>
+            移工跟阿庭他妹交往是他乾哥那一群認識的。然後交往後移工就住到阿庭她家了。
+          </p>
+          <p>
+            那時候阿庭她老公因為酒駕，所以吊銷駕照，還入獄。移工那時候很挺她老公，就跟她老公承諾說他會好好照顧好阿庭跟阿庭他妹。
+          </p>
+          <p>
+            E覺得移工應該是因為他想要依賴這個家，然後對這個家產生依賴感，所以他才會照顧這個家的一切。但對這個家有很深的愛嗎？E不覺得。他甚至對阿庭他妹是沒有愛的，他只是一個渴望家庭的人。
+          </p>
+          <p>
+            移工每天就是上班很累，下班還要幫阿庭顧小孩，還要幫阿庭他妹一起做事情，家事都認真幫忙做。那時候移工跟阿庭他妹並沒有講到未來的事情。所以E推測移工其實並沒有很愛阿庭他妹。
+          </p>
+          <p>
+            跟阿庭她妹有發生親密關係。移工很自豪自己那方面的能力，讓草莓在床上一直叫。
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>🐖 阿庭家決裂</summary>
+        <div class="details-content">
+          <p>
+            移工跟阿庭家決裂，其實是一件有點詭異的事情。移工說他只是一個月沒有繳房租所以要被趕出去，但事實上E不覺得只是這樣。
+          </p>
+          <p>
+            E猜應該是移工跟他們家借了一些錢或者發生了什麼事情。移工就是因為跟阿庭他們家決裂，所以才搬到中壢那邊，然後跟E認識。
+          </p>
+          <p>
+            阿庭基本上跟他乾哥是同一群的，所以之後有欠款還是什麼的都是他們那一群一起跟移工討債。
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>蘆洲女 / 哈士凌</summary>
+        <div class="details-content">
+          <p>
+            短暫跟移工一起住和生活的對象。蘆洲女對移工其實非常好，請過移工很多次東西吃之類的，移工跟她女兒感情非常好。
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>🐒 移工乾哥</summary>
+        <div class="details-content">
+          <p>
+            移工的乾哥是一個蠻懦弱的人，他跟移工從好像是小三的時候來三峽就認識了，國小國中高職都同一班。移工跟他乾哥常常都是會做一些很無腦的事情，然後只有他們彼此會玩的梗，整天一直笑。
+          </p>
+          <p>
+            他乾哥聽說國小的時候就蠻照顧他的。國中也是他們去買東西，他乾哥會付錢。（所以移工被陳坤利軟禁，然後討債的時候就是因為這一些錢，然後被他們一直拿出來講。）
+          </p>
+          <p>
+            之前移工在大園生活的時候還在遠雄國際貿易港區，他乾哥有很長一陣子沒有工作，是靠移工的薪水去支出他們的生活費。
+          </p>
+          <p>
+            後來乾哥就是跟那一群人一起加入四海幫。而且是蠻正式的，以前移工只是可能當圍事，但是他們是真的進去然後被黑道控制。後來為了討債的目的所以才軟禁移工，然後不斷的用一些方式去脅迫移工不斷的繳錢出來。他們基本上都是社會底層。
+          </p>
+          <p>
+            移工的乾哥滿常會搞笑耍白痴，看他們的相處，移工的乾哥感覺是個很好相處的人。只是價值觀很懦弱。因為那時候剛入討債集團的時候，那一群人就要連同他乾哥一起來跟移工討債，他乾哥都默不作聲。為了生活所以連人情都可以出賣，這就是社會底層。
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>☕ 移工的高雄國小同學和三峽國中同學</summary>
+        <div class="details-content">
+          <p>都算是不錯的朋友，事業有成，價值觀也還可以接受。</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>📅 明確時間線整理</summary>
+        <div class="details-content">
+          <p>
+            <strong>2023-05-29</strong> 移工還跟西門前女友在一起（兩人吻照）
+          </p>
+          <p>
+            <strong>2023-10</strong>
+            移工還住在阿庭家，跟他前女友草莓（阿庭他妹）在一起
+          </p>
+          <p>
+            <strong>2023-11</strong> 搬去E中壢住處附近當鄰居，直到 2024-01
+            才認識移工
+          </p>
+        </div>
+      </details>
 
       <!-- 一月 -->
       <h2 class="section-title" id="jan">一月 — 初識</h2>
@@ -1833,8 +2431,6 @@
         </div>
       </div>
 
-      <!-- 尾聲 -->
-      <h2 class="section-title" id="end">尾聲 — 最後的救贖</h2>
       <div class="timeline">
         <div class="entry highlight">
           <div class="entry-date">2026/3 月底</div>
@@ -1878,9 +2474,1309 @@
         </div>
       </div>
 
+      <!-- 2026 四月 -->
+      <h2 class="section-title" id="y2026apr">2026 四月 — 真相大白</h2>
+      <div class="timeline">
+        <div class="entry highlight">
+          <div class="entry-date">2026/4/4 — 契約到期日</div>
+          <div class="entry-content">
+            <p>
+              上周給移工一個契約要求 4/4
+              回應（來中壢住的契約），結果他不接電話。
+            </p>
+            <p>
+              他早上 7 點多玩 Call of Duty 後睡覺了。E下午 15
+              點跟之後打都未接（用別的帳號打也是，應該是真的沒聽到不是封鎖）。
+            </p>
+            <p>
+              跟 3
+              月底那周E跟他通電話的行為完全不同——那時候他有空會回撥閒聊喇賽，會開玩笑跟E講「他介紹給他女友說E是死
+              GAY 不要理E」（開玩笑口吻）。
+            </p>
+            <div class="warning-box">
+              <p><strong>打去他高雄家裡，才發現事情比想像中還嚴重：</strong></p>
+            </div>
+            <p>
+              • 他 2025
+              年中開始完全不跟家裡聯絡，回家都完全不打招呼，而且常常不回家
+            </p>
+            <p>• 工作狀況都一兩個月就換工作（所以符合一年換五份工作）</p>
+            <p>• 他去年年中開始也常常跟他姊頂嘴，最後他姊完全不理他</p>
+            <p>
+              •
+              搬出去的時間也沒對上——他說這周才要搬出去住，結果是上個月開始就沒回家過了
+            </p>
+            <p>
+              • 他說每個月有還E家錢——還的錢確實有進帳，但是錢從哪來的？這很奇怪
+            </p>
+            <p>• 他說他有存幾萬元——讓E起疑，他是不是又說謊</p>
+            <div class="quote">
+              他家人更誇張——連他有女友都不知道。E把僅存的資訊落差分享給他家人。
+            </div>
+            <p>
+              情況緊急，E已肉搜他現任女友，叫她們趕快分手要非常小心，並且告訴她：E非常了解他，除非你想背上
+              20W 以上的債務。
+            </p>
+            <p>
+              E跟E媽緊急討論後一致認為——即使他答應條款，也不可能再讓他來中壢，太危險了。
+            </p>
+            <div class="quote">
+              這次是真的要完全放下了。他家人完全不想再給他機會了。
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-date">2026/4/4 — E的推測</div>
+          <div class="entry-content">
+            <p>目前E猜測移工跟他女生的關係，有兩種可能：</p>
+            <p>
+              <strong>1. 在高雄同居</strong
+              >：移工自述這女生從樹林下來高雄，但他家人覺得可能性低。這很快就會出事（他家人完全不想再給他機會了）。
+            </p>
+            <p>
+              <strong>2. 跟他女友回樹林家裡住</strong
+              >：這最後也會出問題——以前在阿庭家的經歷就是前車之鑑，他在別人家裡住、每天認真工作回家幫忙照顧小孩付錢，後來未知原因沒有繳房租被全家趕出去。但真的只有沒繳房租嗎？現在是個問號。
+            </p>
+            <div class="quote">
+              聽起來結果都會挺糟糕的。沒錢再來當然是借錢了。
+            </div>
+            <p>
+              目前E認識的朋友跟家人都在猜測——他錢哪裡來的？這是大家最擔心的。他看起來又開始逃避型人格了。
+            </p>
+          </div>
+        </div>
+
+        <div class="entry highlight">
+          <div class="entry-date">2026/4/4 — E聯繫移工現任女友</div>
+          <div class="entry-content">
+            <div class="dialogue">
+              <p>
+                <strong>E（傳訊給移工現任女友）：</strong
+                >我勸你馬上跟張移工分手，他現在的狀況很不好，他家人都很好但是他對家人都很差（我認識他高雄的家人們），他現在跟你同居，我勸你馬上離開他，否則他很可能會讓你沒辦法控制，例如到處亂借錢不上班要你養他。
+              </p>
+              <p>
+                <strong>E：</strong
+                >另外，千萬不要跟移工說我傳訊息給你的事情，千萬不要相信他的說詞。我話講死我跟他認識很久了，我對他的一切都很了解。為了你好，真的馬上離開他，勸他跟家人和好。
+              </p>
+              <p>
+                <strong>E：</strong
+                >他為什麼會跟你在一起？我可以很直接說，他不愛你。他是逃避型人格，他只是要人依賴。
+              </p>
+              <p>
+                <strong>E：</strong
+                >張移工通常一開始都會讓你覺得他很正常，但是過幾個月就會開始出問題。你不要相信他。他為什麼不敢講他過去的事情？因為太糟糕了。他被他家裡趕出來和我們家一定是有原因的。他會替自己脫罪，實際上根本不是這回事。
+              </p>
+              <p>
+                <strong>E：</strong
+                >他不會劈腿，但是你也無法處理。妳的能力不可能處理他。不要為了移工的可憐遭遇想照顧他，除非你想負債
+                20 幾萬（他正在還）。千萬不要對他產生母愛。
+              </p>
+            </div>
+            <div class="dialogue">
+              <p>
+                <strong>移工現任女友回應（2026-04-05 00:05）：</strong
+                >你是怎麼查到我信箱？你這樣做，心裡壓力很大。我跟你不熟但你卻用這樣激進的手段來密我這樣對嗎？然後你叫他跟我分手是好讓他去你身邊嗎？
+              </p>
+            </div>
+            <div class="dialogue">
+              <p>
+                <strong>E：</strong
+                >你壓力很大那是你的事情，事實上我是好意。你不心領也沒關係，之後他欠款不要爆開來找他高雄家裡的人喔。他之前惹到黑道都是我處理的。你一個小女生能幹嘛？別人一拳你就嚇死了。
+              </p>
+              <p>
+                <strong>E：</strong
+                >不，我不會給他機會。因為今天我跟他家聯絡，我發現嚴重的一件事情所以才跟你聯絡。我原本以為
+                2025-06
+                他有跟我聯絡變好，他主動討論工作，所以才給他機會。事實上他跟家裡的人決裂——大概
+                2025 年中，他開始不斷跟家裡的人頂嘴，他家人原本 2025
+                初剛回去還會聽話後來都沒有了。
+              </p>
+              <p>
+                <strong>E：</strong
+                >他說他有幾萬元存款，他很可能說謊喔。還有你一直看他跟我的對話，我講實在的他不愛你這我很確定。
+              </p>
+              <p>
+                <strong>E：</strong
+                >他有很多任女友，他嘴巴上說是愛但根本不是。兩個寂寞的人是不會有愛的。把你自己經營好，而不是每天網路呻吟。
+              </p>
+              <p>
+                <strong>E：</strong
+                >他真正愛一個人他會談到未來很認真的，那眼神跟說詞不一樣，他會哭他會笑。他對唯一一任女友跟E會，但其他人不會。跟你就是寂寞陪伴品而已。
+              </p>
+              <p>
+                <strong>E：</strong
+                >他是逃避型人格，你沒辦法掌握，除非你很懂心理諮商。之前E跟他遠距離E才沒辦法，不過現在E也不可能理他了。
+              </p>
+            </div>
+            <div class="quote">
+              2024-01~2024-06，張移工有活過來一陣子。那是他最像小孩子最真實的時候。他在E懷裡會哭會笑撒嬌，願意誠實面對他過去的事情去彌補，一直跟E媽承諾他會努力向上，他確實也是穩定工作還款。之後就死了。現在的他是逃避的他。
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-date">2026/4/5 凌晨 — 已讀不回</div>
+          <div class="entry-content">
+            <p>移工凌晨一點才已讀訊息（不回應）。</p>
+            <p>
+              行為跟當時從中壢救他後、乾哥阿庭他們聯絡他的狀況完全一樣，也跟高雄姊姊伯母聯絡他的狀況一樣——只是簡單的關心就被完全忽略，甚至辦新帳號想完全禁音。
+            </p>
+            <div class="quote">行為完全一模一樣。這太奇怪了。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 尾聲 -->
+      <h2 class="section-title" id="end">尾聲 — 最後的救贖</h2>
+      <div class="timeline">
+        <div class="entry highlight">
+          <div class="entry-date">2026/3 月底</div>
+          <div class="entry-content">
+            <p>
+              E訂了一個最後的契約，給移工一周考慮，讓移工有機會可以翻身，以及真正解決過去的嚴重問題。
+            </p>
+
+            <div class="contract">
+              <h3>移工來中壢工作與E生活同居契約</h3>
+              <p style="color: var(--text-light); margin-bottom: 12px">
+                前提：必須帶著徹底改變和穩定的心境來中壢生活，不可以今天脾氣來了就改變東改變西。
+              </p>
+              <ol>
+                <li>房租：每個月分擔合理房租金額</li>
+                <li>
+                  必須盡量和E培養興趣，例如一起運動、採購生活用品、學投資理財、職業性向的探索、生活興趣探索，包含日常文書軟體學習
+                </li>
+                <li>
+                  必須要學習面對自己的價值觀和過去，要和E坦誠以對，花時間靜下心來散步或是聊天，認真去改善價值觀
+                </li>
+                <li>
+                  搬來一起住必須要認真解決需求，以培養真實感情厚度為首要前提
+                </li>
+                <li>要用開放的心態去和E探索世界，不可以主觀認為很無聯就拒絕</li>
+                <li>上面如果沒有誠意達到，就送回高雄</li>
+              </ol>
+            </div>
+
+            <div class="quote">
+              一周的時間讓移工考慮。這次應該是最後的救贖，如果移工不答應很可能就會斷絕以後的聯絡。
+            </div>
+          </div>
+        </div>
+
+        <div class="entry highlight">
+          <div class="entry-date">2026/4/5 — 結局</div>
+          <div class="entry-content">
+            <p>契約截止日過了。移工沒有回應。</p>
+            <p>
+              E跟家人、朋友全部確認過：即使他答應條款，也不可能再讓他來中壢了。太危險了。
+            </p>
+            <p>
+              打給他家人後才知道，一切都比想像中嚴重。他從來沒有真正好轉——2025
+              年中「看起來好轉」不過是表面。實際上他再次完全封閉自己、逃避所有真正關心他的人，行為模式和當初被討債集團追債時一模一樣。
+            </p>
+            <p>
+              E的朋友問：他什麼時候能恢復正常？E說，要近距離的相處、持續的陪伴和親密接觸才有辦法穩定他的情緒——但同時要對抗過去菸癮和酒癮在大腦神經傳遞上造成的異常放電，幾乎不可能了。之前已經給了很多，如果沒辦法，真的就要靠他自己。
+            </p>
+            <div class="quote">
+              這次是真的要完全放下了。以後可能會用更接近第三者的角度跟他對談——因為他已經完全不可能再讓E給他任何可能了。
+            </div>
+            <p>
+              比較耐人尋味的是，移工其實跟那些男人一樣，根本不懂自己真正愛誰。即使「知道」，但要真正「體會」還有很大的距離——心裡要嘛沒有感覺，要嘛感受太微弱。一直在逃避些什麼。
+            </p>
+            <p>以後去高雄拜訪他家人吧。他的家人，人都很好。</p>
+            <p style="margin-top: 16px; color: var(--text-light)">
+              <strong>欠款總計：$233,722</strong>（截至 2024-12-11）
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 心理分析 -->
+      <div class="analysis-section" id="analysis">
+        <h2
+          class="section-title"
+          style="border-bottom-color: #bee3f8; color: #2b6cb0"
+        >
+          心理狀態綜合分析
+        </h2>
+        <!-- 版本切換 -->
+        <div class="version-toggle">
+          <span
+            class="version-toggle-label neutral active"
+            onclick="switchAnalysis('neutral')"
+            >🔬 中立醫療版</span
+          >
+          <span
+            class="version-toggle-label savage"
+            onclick="switchAnalysis('savage')"
+            >🌶️ 超級毒辣版</span
+          >
+          <span
+            class="version-toggle-label ultimate"
+            onclick="switchAnalysis('ultimate')"
+            >💀 終極毒辣真實版</span
+          >
+        </div>
+
+        <!-- ===== 中立版 ===== -->
+        <div id="analysis-neutral">
+          <div class="analysis-badge">
+            📋 基於行為觀察的推論分析，非臨床診斷
+          </div>
+          <div class="analysis-disclaimer">
+            ⚠
+            本分析基於E長期觀察紀錄、家屬訪談、行為時間線與對話紀錄。所有推論僅供參考，正式評估需由精神科醫師或臨床心理師進行。
+          </div>
+
+          <!-- 基本背景 -->
+          <div class="analysis-card">
+            <h3>📌 基本背景</h3>
+            <table class="analysis-table">
+              <thead>
+                <tr>
+                  <th>項目</th>
+                  <th>內容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>年齡</td>
+                  <td>23 歲（2026 年）</td>
+                </tr>
+                <tr>
+                  <td>學歷</td>
+                  <td>高職汽車科肄業</td>
+                </tr>
+                <tr>
+                  <td>家庭背景</td>
+                  <td>
+                    越南母親生下後離開、父親再婚後離婚、繼母帶走同父異母弟弟
+                  </td>
+                </tr>
+                <tr>
+                  <td>成長環境</td>
+                  <td>屏東車城 → 高雄鳳山 → 三峽（小三後）</td>
+                </tr>
+                <tr>
+                  <td>主要照顧者</td>
+                  <td>父親（嚴厲管控型）、姊姊/伯母（有愛但後來放棄）</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 依附模式 -->
+          <div class="analysis-card">
+            <h3>🔗 依附模式分析（Avoidant Attachment）</h3>
+            <p>
+              移工的依附行為高度符合<strong>不安全依附——迴避型</strong>的特徵：
+            </p>
+            <table class="analysis-table">
+              <thead>
+                <tr>
+                  <th>特徵</th>
+                  <th>移工的具體表現</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>渴望親密但恐懼依賴</td>
+                  <td>交往後會搬進對方家住（寄宿行為），但從不談論未來</td>
+                </tr>
+                <tr>
+                  <td>迴避情感表達</td>
+                  <td>說不知道怎麼跟男生/女生表達；被問愛不愛回答「不知道」</td>
+                </tr>
+                <tr>
+                  <td>在壓力下撤退</td>
+                  <td>面對關心或要求時選擇已讀不回、換帳號、不接電話</td>
+                </tr>
+                <tr>
+                  <td>關係中的功能性角色</td>
+                  <td>
+                    透過「照顧家務」「顧小孩」取得留在家庭中的正當性，而非透過情感連結
+                  </td>
+                </tr>
+                <tr>
+                  <td>失去關係後的反應</td>
+                  <td>極度痛苦（哭泣、酗酒數月），但不會主動修復</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 寄宿行為 -->
+          <div class="analysis-card">
+            <h3>🏠 寄宿行為循環（Repeated Nesting）</h3>
+            <p>
+              移工反覆搬入他人家庭並承擔家務角色——尋找的是「家的功能」（安全、穩定、歸屬），而非「關係中的愛」：
+            </p>
+            <table class="analysis-table">
+              <thead>
+                <tr>
+                  <th>對象</th>
+                  <th>模式</th>
+                  <th>結果</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>阿庭家</td>
+                  <td>幫忙顧小孩、做家事、付生活費</td>
+                  <td>被趕出</td>
+                </tr>
+                <tr>
+                  <td>E家（中壢）</td>
+                  <td>被照顧、搭伙共居</td>
+                  <td>因行為問題搬離</td>
+                </tr>
+                <tr>
+                  <td>台南住處</td>
+                  <td>由E安排</td>
+                  <td>因說謊和金錢問題搬回高雄</td>
+                </tr>
+                <tr>
+                  <td>高雄家</td>
+                  <td>短暫回歸</td>
+                  <td>不打招呼、不回家、再度搬出</td>
+                </tr>
+                <tr>
+                  <td>現任女友</td>
+                  <td>疑似再度同居</td>
+                  <td>結果待觀察</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 行為循環模型 -->
+          <div class="analysis-card">
+            <h3>🔄 行為循環模型</h3>
+            <p>根據所有紀錄，移工的行為呈現以下可預測的 6 步循環：</p>
+            <div class="cycle-flow">
+              <div class="cycle-step">
+                <div class="step-num">Step 1</div>
+                <div class="step-title">進入新環境</div>
+                <div class="step-desc">表現良好、認真工作、照顧他人</div>
+              </div>
+              <span class="cycle-arrow">→</span>
+              <div class="cycle-step">
+                <div class="step-num">Step 2</div>
+                <div class="step-title">蜜月期</div>
+                <div class="step-desc">穩定、主動、有改變意願</div>
+              </div>
+              <span class="cycle-arrow">→</span>
+              <div class="cycle-step">
+                <div class="step-num">Step 3</div>
+                <div class="step-title">壓力累積</div>
+                <div class="step-desc">小謊言、花錢異常、態度轉變</div>
+              </div>
+              <span class="cycle-arrow">→</span>
+              <div class="cycle-step">
+                <div class="step-num">Step 4</div>
+                <div class="step-title">迴避期</div>
+                <div class="step-desc">不接電話、已讀不回、態度惡劣</div>
+              </div>
+              <span class="cycle-arrow">→</span>
+              <div class="cycle-step">
+                <div class="step-num">Step 5</div>
+                <div class="step-title">關係破裂</div>
+                <div class="step-desc">被動接受、不修復、酗酒消沉</div>
+              </div>
+              <span class="cycle-arrow">→</span>
+              <div class="cycle-step">
+                <div class="step-num">Step 6</div>
+                <div class="step-title">尋找下一個家</div>
+                <div class="step-desc">新女友/新寄宿 → 回到 Step 1</div>
+              </div>
+            </div>
+            <p
+              style="
+                text-align: center;
+                color: var(--text-light);
+                font-size: 0.85rem;
+                margin-top: 8px;
+              "
+            >
+              已知循環：高雄前女友 → 西門前女友 → 阿庭家 → E（中壢/台南）→
+              高雄家 → 現任女友
+            </p>
+          </div>
+
+          <!-- 說謊與現實落差 -->
+          <div class="analysis-card">
+            <h3>🔍 事實核對：說謊與現實落差</h3>
+            <table class="analysis-table">
+              <thead>
+                <tr>
+                  <th>移工的說詞</th>
+                  <th>實際情況</th>
+                  <th>來源</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>「這周才要搬出去」</td>
+                  <td>上個月就沒回家了</td>
+                  <td>家人</td>
+                </tr>
+                <tr>
+                  <td>「有存幾萬元」</td>
+                  <td>錢的來源不明，工作頻繁更換</td>
+                  <td>E/家人</td>
+                </tr>
+                <tr>
+                  <td>「每個月有還錢」</td>
+                  <td>還款有進帳，但不符合收入狀況</td>
+                  <td>E</td>
+                </tr>
+                <tr>
+                  <td>2025 年「看起來好轉」</td>
+                  <td>實際上完全斷絕家人聯繫</td>
+                  <td>家人</td>
+                </tr>
+                <tr>
+                  <td>博弈欠款自述 14W</td>
+                  <td>老闆說 30W / 朋友間實際無明確欠款</td>
+                  <td>多方矛盾</td>
+                </tr>
+                <tr>
+                  <td>「只有一個月沒繳房租」被趕出阿庭家</td>
+                  <td>可能有其他未揭露的原因</td>
+                  <td>E推測</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 照顧者態度模式 -->
+          <div class="analysis-card">
+            <h3>💔 事實核對：對照顧者的態度模式</h3>
+            <p>
+              <strong>共同模式</strong
+              >：對真正照顧他的人，先依賴再推開。越親近、越關心他的人，最後越會被他惡劣對待。
+            </p>
+            <table class="analysis-table">
+              <thead>
+                <tr>
+                  <th>照顧者</th>
+                  <th>初期態度</th>
+                  <th>後期態度</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>姊姊/伯母</td>
+                  <td>接受照顧</td>
+                  <td>頂嘴、斷聯</td>
+                </tr>
+                <tr>
+                  <td>E</td>
+                  <td>依賴、撒嬌、表達在乎</td>
+                  <td>態度惡劣、找事吵架、不回應</td>
+                </tr>
+                <tr>
+                  <td>E媽</td>
+                  <td>承諾會努力、尊敬</td>
+                  <td>欺騙、不坦承</td>
+                </tr>
+                <tr>
+                  <td>阿庭家</td>
+                  <td>認真工作、照顧家務</td>
+                  <td>不繳房租、被趕出</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 物質依賴 -->
+          <div class="analysis-card">
+            <h3>🧪 物質依賴的神經學影響</h3>
+            <table class="analysis-table">
+              <thead>
+                <tr>
+                  <th>物質</th>
+                  <th>使用情形</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>菸</td>
+                  <td>長期重度吸菸，2024 年戒菸後疑似復吸</td>
+                </tr>
+                <tr>
+                  <td>酒</td>
+                  <td>失戀後長期酗酒、工作壓力下每日飲酒、員購酒事件</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="margin-top: 12px">
+              長期尼古丁與酒精使用會改變大腦的<strong>獎勵迴路</strong>和<strong>前額葉皮質</strong>功能——導致情緒調節困難、衝動控制下降、延遲滿足能力減低。
+            </p>
+            <p>
+              E觀察到「近距離相處且持續親密接觸後幾天會比較穩定」——可能與<strong>催產素（Oxytocin）</strong>分泌有關，但此效果為暫時性，無法根本修復神經迴路的長期損傷。
+            </p>
+          </div>
+
+          <!-- 預後評估 -->
+          <div class="analysis-card">
+            <h3>📊 預後評估</h3>
+            <div class="prognosis-split">
+              <div class="prognosis-box negative">
+                <h4>⛔ 不利因素</h4>
+                <ul>
+                  <li>已形成穩固的迴避循環，且循環週期在縮短（數月 → 數週）</li>
+                  <li>缺乏病識感（不認為自己需要改變或就醫）</li>
+                  <li>經濟基礎極度脆弱，無法支撐穩定生活</li>
+                  <li>所有願意幫助的人均已表示放棄</li>
+                  <li>目前新關係的對象無力處理其複雜問題</li>
+                </ul>
+              </div>
+              <div class="prognosis-box positive">
+                <h4>✅ 有利因素</h4>
+                <ul>
+                  <li>2024 年 1-6 月曾在安全環境中展現真實情感與改變意願</li>
+                  <li>在持續且密集的陪伴下，情緒調節能力可以暫時恢復</li>
+                  <li>
+                    並非完全缺乏情感能力——具備愛的能力，但需極特殊條件才能啟動
+                  </li>
+                  <li>年齡尚輕（23 歲），神經可塑性仍有空間</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 結論 -->
+          <div class="analysis-conclusion">
+            <h3>📝 結論</h3>
+            <p>
+              移工的核心議題並非單純的「不負責任」或「懶惰」，而是一套從早期依附創傷中發展出來的<strong>生存策略</strong>。他用迴避來保護自己不再受傷，用寄宿來填補缺失的家庭感，用謊言來維持表面的和平。
+            </p>
+            <p>
+              這套策略在短期內有效——它讓他在各種困境中存活下來——但長期來看，它摧毀了所有他真正需要的關係。
+            </p>
+            <p>
+              最令人感慨的是：他確實擁有愛的能力。2024
+              年初那段日子證明了這一點。但要啟動那份能力，需要極高強度的安全感、持續的陪伴、以及他自身的主動意願——三個條件目前都已不存在。
+            </p>
+            <p
+              style="
+                color: var(--text-light);
+                font-style: italic;
+                margin-top: 14px;
+              "
+            >
+              在沒有專業介入的情況下，根據行為循環模型，預測其當前關係將在 3–6
+              個月內進入迴避期，並重複過往模式。
+            </p>
+          </div>
+
+          <p
+            style="
+              text-align: center;
+              color: var(--text-light);
+              font-size: 0.78rem;
+              margin-top: 24px;
+            "
+          >
+            本分析僅供參考，不構成臨床診斷。如需正式評估，請諮詢精神科醫師或臨床心理師。
+          </p>
+        </div>
+        <!-- /analysis-neutral -->
+
+        <!-- ===== 毒辣版 ===== -->
+        <div id="analysis-savage" style="display: none">
+          <div
+            class="analysis-badge"
+            style="background: #fff5f5; color: #9b2c2c"
+          >
+            🌶️🌶️🌶️ 不留情面、直球對決、刀刀見骨
+          </div>
+          <div
+            class="analysis-disclaimer"
+            style="
+              background: #fff5f5;
+              color: #9b2c2c;
+              border: 1px solid #fed7d7;
+            "
+          >
+            ⚠
+            本版本以極度直白的語言重新詮釋同一批事實。所有論述皆有事件佐證，只是不再用醫學術語幫他找台階下。
+          </div>
+
+          <!-- 基本數據 -->
+          <div class="analysis-card savage-card">
+            <h3>📌 此人基本數據</h3>
+            <table class="analysis-table savage-table">
+              <thead>
+                <tr>
+                  <th>項目</th>
+                  <th>內容</th>
+                  <th>毒辣翻譯</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>年齡</td>
+                  <td>23 歲</td>
+                  <td>身體 23 歲，心智停在被趕出家那年的 17 歲</td>
+                </tr>
+                <tr>
+                  <td>學歷</td>
+                  <td>高職汽車科肄業</td>
+                  <td>連高職都讀不完——重點是他連一份工作都留不住</td>
+                </tr>
+                <tr>
+                  <td>家庭背景</td>
+                  <td>越南母親生下就走、父親嚴厲、繼母離開</td>
+                  <td>被整個世界退貨過的小孩，長大後學會先退貨別人</td>
+                </tr>
+                <tr>
+                  <td>現況</td>
+                  <td>與現任女友疑似同居，家人全部斷聯</td>
+                  <td>找到新的免費旅館了，暫時穩定</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 寄生循環 -->
+          <div class="analysis-card savage-card">
+            <h3>🔄 行為模式：寄生循環五步曲</h3>
+            <p>
+              中立版叫它「寄宿行為模式」，但我們直說吧——這是一套精準的<strong>情感寄生術</strong>：
+            </p>
+            <table class="analysis-table savage-table">
+              <thead>
+                <tr>
+                  <th>步驟</th>
+                  <th>行為</th>
+                  <th>直白翻譯</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>進入新關係/新家庭</td>
+                  <td>物色下一個宿主。標準：有房住、願意被利用、最好心軟</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>蜜月期表現良好</td>
+                  <td>裝乖。煮飯、拖地、撒嬌、哭泣——全套表演到位</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>開始小謊話、花錢異常</td>
+                  <td>原形畢露。他從來不是在「改變」，他只是在「演」</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>已讀不回、態度惡劣</td>
+                  <td>面具戴不住了，開始把對他最好的人當出氣筒</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>被趕出 → 尋找下一家</td>
+                  <td>Reset。清除存檔，開新遊戲。帶走的東西：零成長、新負債</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="savage-highlight">
+              六段關係，六次相同的劇本。如果這是電影早就被觀眾罵爛了——「導演你連劇情都不改一下嗎？」
+            </div>
+          </div>
+
+          <!-- 謊言對照 -->
+          <div class="analysis-card savage-card">
+            <h3>🤥 謊言 vs 現實對照表</h3>
+            <p>
+              普通人說謊是偶爾犯錯，移工說謊是<strong>預設模式</strong>。真話才是例外。
+            </p>
+            <table class="analysis-table savage-table">
+              <thead>
+                <tr>
+                  <th>他說的</th>
+                  <th>真相</th>
+                  <th>毒辣評語</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>「這周才要搬出去」</td>
+                  <td>上個月就沒回家了</td>
+                  <td>連離家出走都要騙人日期——純粹是肌肉記憶</td>
+                </tr>
+                <tr>
+                  <td>「有存幾萬元」</td>
+                  <td>錢的來源不明，工作頻繁更換</td>
+                  <td>存款跟他的承諾一樣——聽聽就好，要求看帳戶就翻臉</td>
+                </tr>
+                <tr>
+                  <td>「每個月有還錢」</td>
+                  <td>還款有進帳但不符合收入</td>
+                  <td>真棒，還了一點點。剩下 20 萬什麼時候還？下輩子？</td>
+                </tr>
+                <tr>
+                  <td>2025「看起來好轉」</td>
+                  <td>完全斷絕家人聯繫</td>
+                  <td>「好轉」= 騙術升級。從演不好的騙子變成直接消失的騙子</td>
+                </tr>
+                <tr>
+                  <td>博弈欠款自述 14W</td>
+                  <td>老闆說 30W</td>
+                  <td>連自己欠多少錢都說謊，是怕嚇到金主還是數學不好？</td>
+                </tr>
+                <tr>
+                  <td>「只有一個月沒繳房租」</td>
+                  <td>可能有其他問題</td>
+                  <td>你信嗎？反正E信了，然後被坑了兩年</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 農夫與蛇 -->
+          <div class="analysis-card savage-card">
+            <h3>🐍 對照顧者的態度：農夫與蛇 × 4</h3>
+            <table class="analysis-table savage-table">
+              <thead>
+                <tr>
+                  <th>照顧者</th>
+                  <th>他們為移工做了什麼</th>
+                  <th>移工的回報</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>姊姊/伯母</td>
+                  <td>從小拉拔長大、一路關心、幫還賭債</td>
+                  <td>頂嘴、已讀不回、當陌生人</td>
+                </tr>
+                <tr>
+                  <td>E</td>
+                  <td>2 年陪伴、借錢、安排工作住處、心理支持</td>
+                  <td>態度惡劣、到處說謊、找事吵架、消失</td>
+                </tr>
+                <tr>
+                  <td>E媽</td>
+                  <td>當自己孩子疼、做飯給他、叮嚀他</td>
+                  <td>欺騙、不坦承、辜負信任</td>
+                </tr>
+                <tr>
+                  <td>阿庭家</td>
+                  <td>收留、給住的地方、讓他融入家庭</td>
+                  <td>不繳房租、捅出問題、被掃地出門</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="savage-highlight">
+              規律：對他越好的人，被他傷得越深。他就像一台壞掉的暖爐——誰靠近誰被燒。
+            </div>
+          </div>
+
+          <!-- 迴避型翻譯 -->
+          <div class="analysis-card savage-card">
+            <h3>🎭 「迴避型人格」的人話翻譯</h3>
+            <table class="analysis-table savage-table">
+              <thead>
+                <tr>
+                  <th>學術說法</th>
+                  <th>人話翻譯</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>渴望親密但恐懼依賴</td>
+                  <td>想蹭飯但不想洗碗</td>
+                </tr>
+                <tr>
+                  <td>迴避情感表達</td>
+                  <td>
+                    問他愛不愛你，他說「不知道」。翻譯：你是工具人，他懶得演了
+                  </td>
+                </tr>
+                <tr>
+                  <td>在壓力下撤退</td>
+                  <td>帳單來了？裝死。要求談話？裝死。契約到期？裝、死</td>
+                </tr>
+                <tr>
+                  <td>功能性角色取得歸屬</td>
+                  <td>用煮飯拖地當房租——精算下來連計時工的時薪都不到</td>
+                </tr>
+                <tr>
+                  <td>失去關係後極度痛苦但不修復</td>
+                  <td>
+                    會哭、會喝酒——但就是不會道歉、不會改。因為重新找一個比修復容易太多了
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 核心信念翻譯 -->
+          <div class="analysis-card savage-card">
+            <h3>💀 核心信念翻譯</h3>
+            <table class="analysis-table savage-table">
+              <thead>
+                <tr>
+                  <th>學術說法</th>
+                  <th>毒辣翻譯</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>「依賴他人最終會被拋棄」</td>
+                  <td>所以我先拋棄你——至少這樣是我選的</td>
+                </tr>
+                <tr>
+                  <td>「付出不會被感激」</td>
+                  <td>所以我乾脆不付出。反正你們欠我的——我從小就沒人愛</td>
+                </tr>
+                <tr>
+                  <td>「我不值得被真正愛」</td>
+                  <td>
+                    所以好好愛我的人一定有問題，我得趕快破壞掉這段關係來驗證假設
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="savage-highlight">
+              三條信念組合起來就一句話：「這個世界虧欠我，但我也不敢去要——所以我用偷的。」<br />
+              偷感情、偷信任、偷安全感——拿到手用到壞掉就丟，然後去偷下一個。
+            </div>
+          </div>
+
+          <!-- 可憐不是免死金牌 -->
+          <div class="analysis-card savage-card">
+            <h3>⚖️ 「可憐」不是免死金牌</h3>
+            <p>移工的童年確實令人同情。但：</p>
+            <ul style="padding-left: 20px; margin-bottom: 12px">
+              <li>E也不是含著金湯匙出生的</li>
+              <li>E媽也經歷過很多苦日子</li>
+              <li>姊姊和伯母從小就在幫家族顧小孩</li>
+              <li>阿庭家的孩子們也各有困難，但沒有人像他一樣</li>
+            </ul>
+            <p>
+              「可憐」是用來理解他為什麼變成這樣，<strong>不是</strong>用來合理化他繼續這樣。
+            </p>
+            <div class="savage-highlight">
+              23 歲了。被趕出家門到現在 6 年。6
+              年可以讀完學士加碩士。他做了什麼？從一個人的沙發換到另一個人的床。
+            </div>
+          </div>
+
+          <!-- 給現任女友的預言 -->
+          <div class="analysis-card savage-card">
+            <h3>🔮 給現任女友的預言</h3>
+            <p>根據過往所有循環的統計數據，以下是你未來 3–6 個月的行程表：</p>
+            <table class="analysis-table savage-table">
+              <thead>
+                <tr>
+                  <th>時間點</th>
+                  <th>你會經歷什麼</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>現在～第 1 個月</td>
+                  <td>
+                    甜蜜期。他會煮飯、撒嬌、說你是他的全世界。恭喜中了彩票
+                  </td>
+                </tr>
+                <tr>
+                  <td>第 2～3 個月</td>
+                  <td>
+                    他開始借錢。先小額，然後越來越大。問他幹嘛用？「不要管啦」
+                  </td>
+                </tr>
+                <tr>
+                  <td>第 3～4 個月</td>
+                  <td>
+                    你發現他沒去上班或又換工作了。問他怎麼了？他說你管太多
+                  </td>
+                </tr>
+                <tr>
+                  <td>第 4～5 個月</td>
+                  <td>已讀不回。你傳訊息他不看，打電話不接。你開始焦慮</td>
+                </tr>
+                <tr>
+                  <td>第 5～6 個月</td>
+                  <td>選項 A：他直接消失。選項 B：你忍不住把他趕出去</td>
+                </tr>
+                <tr>
+                  <td>第 6 個月之後</td>
+                  <td>
+                    他出現在另一個女生家裡，重新 Step 1。而你手上多了一張欠條
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="color: var(--text-light); margin-top: 12px">
+              E用了兩年走完這個循環。阿庭家也是。希望你不需要那麼久。
+            </p>
+          </div>
+
+          <!-- 殘酷的數學題 -->
+          <div class="analysis-card savage-card">
+            <h3>🧮 殘酷的數學題</h3>
+            <table class="analysis-table savage-table">
+              <thead>
+                <tr>
+                  <th>投資者</th>
+                  <th>投入了什麼</th>
+                  <th>回報</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>E</td>
+                  <td>2 年時間 + 情感勞動 + 金錢 + 安排工作住處 + 心理代價</td>
+                  <td>零。是負數</td>
+                </tr>
+                <tr>
+                  <td>阿庭家</td>
+                  <td>收留 + 照顧 + 信任</td>
+                  <td>零。被掃出去時還欠房租</td>
+                </tr>
+                <tr>
+                  <td>姊姊/伯母</td>
+                  <td>從小到大養育 + 8W 賭債代償</td>
+                  <td>零。得到的是頂嘴和斷聯</td>
+                </tr>
+                <tr>
+                  <td>三峽前女友</td>
+                  <td>辦門號 + 租屋 + 代墊 ~2W</td>
+                  <td>零。還被移工到處污衊</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="savage-highlight">投資報酬率：<strong>-∞</strong></div>
+          </div>
+
+          <!-- 結語 -->
+          <div class="savage-conclusion">
+            <h3>🔥 結語</h3>
+            <p>中立版說「他確實擁有愛的能力，2024 年初證明了這一點」。</p>
+            <p>
+              毒辣版的回應是：<strong
+                >那不叫愛，那叫表演慾最旺盛的時期。</strong
+              >
+            </p>
+            <p>
+              2024 年 1-6
+              月，他剛來到新環境、有新的觀眾、有新的舞台。他的每一次哭泣、每一次撒嬌、每一次「我好怕你不要我」——是真情實感還是求生本能？答案可能兩者都是。但問題是：<strong
+                >就算他的感情是真的，保質期也只有半年。</strong
+              >
+            </p>
+            <p>
+              半年後，面具掉了，謊言來了，迴避開始了。然後他會找到下一個觀眾，重新開場，繼續演。
+            </p>
+            <p
+              style="
+                margin-top: 16px;
+                border-top: 1px solid #fed7d7;
+                padding-top: 16px;
+              "
+            >
+              這不是一個壞人的故事。這是一個<strong>把所有人都變成配角的人</strong>的故事。在移工的世界裡，所有人都是佈景——姊姊是童年的佈景、阿庭家是過渡期的佈景、E是最華麗的佈景、現任女友是最新的佈景。
+            </p>
+            <p>
+              他從一個舞台走到另一個舞台，演著相同的戲碼，說著相同的台詞。唯一改變的是觀眾席的人。
+            </p>
+            <p style="font-style: italic; color: var(--text-light)">
+              而那些被他用過的佈景，還留在原地，慢慢收拾他離開後的殘局。
+            </p>
+          </div>
+
+          <p
+            style="
+              text-align: center;
+              color: var(--text-light);
+              font-size: 0.78rem;
+              margin-top: 24px;
+            "
+          >
+            本分析所有論述均基於可驗證的事實記錄。語氣辛辣，但每一刀都是有事實支撐的手術刀。
+          </p>
+        </div>
+        <!-- /analysis-savage -->
+
+        <!-- ===== 終極毒辣真實版 ===== -->
+        <div id="analysis-ultimate" style="display: none">
+          <div
+            class="analysis-badge"
+            style="background: #1a1a2e; color: #f6e05e"
+          >
+            💀💀💀💀💀 不留情面・直球對決・刀刀見骨・事實碾壓
+          </div>
+          <div
+            class="analysis-disclaimer"
+            style="
+              background: #1a1a2e;
+              color: #f6e05e;
+              border: 1px solid #4a3860;
+            "
+          >
+            ⚠
+            核心概念：停止用「受傷的孩子」來洗白——他只是個精於算計的「情感掠奪性寄生蟲」。所有論述基於
+            2024-2026 實測紀實。
+          </div>
+
+          <!-- 寄生等級評定 -->
+          <div class="analysis-card ultimate-card">
+            <h3>📊 寄生等級評定</h3>
+            <table class="analysis-table ultimate-table">
+              <thead>
+                <tr>
+                  <th>項目</th>
+                  <th>表面人設</th>
+                  <th>毒辣真相（基於事實）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>生存手段</td>
+                  <td>粗工、工程、物流</td>
+                  <td>
+                    <strong>找「免錢旅館」的能力遠強於工作能力。</strong>21
+                    歲至今換過 N
+                    份工作，沒一個留得住，但「女朋友」和「收留家庭」從不間斷。
+                  </td>
+                </tr>
+                <tr>
+                  <td>性格標籤</td>
+                  <td>害羞、社恐、憂鬱症</td>
+                  <td>
+                    <strong>選擇性社交障礙。</strong
+                    >面對債主和警察時很社恐，但偷買點數、在包廂跟妹子玩、欺騙對他好的人時，心跳比誰都穩。
+                  </td>
+                </tr>
+                <tr>
+                  <td>財富狀態</td>
+                  <td>欠債受害者</td>
+                  <td>
+                    <strong>情感高利貸慣犯。</strong>欠E家幾十萬，轉頭偷買
+                    $5,640 遊戲點數。「沒錢」是拿來勒索同情心的工具。
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 詐騙手法拆解 -->
+          <div class="analysis-card ultimate-card">
+            <h3>🔍 謊言與現實的打臉現場</h3>
+            <p>這不是心理分析，這是<strong>「詐騙手法拆解」</strong>。</p>
+            <table class="analysis-table ultimate-table">
+              <thead>
+                <tr>
+                  <th>案發時間</th>
+                  <th>他的說法（演技）</th>
+                  <th>真實發生的事</th>
+                  <th>毒辣點評</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2024.01</td>
+                  <td>「我沒錢，借 $300」</td>
+                  <td>連 $300 都還不出來，卻有錢抽菸</td>
+                  <td>
+                    <strong>測試宿主底線：</strong
+                    >用極低成本測試你是不是好騙的聖母
+                  </td>
+                </tr>
+                <tr>
+                  <td>2024.03</td>
+                  <td>「我有憂鬱症，好怕失去你」</td>
+                  <td>拿著E給的資源，回頭就消失</td>
+                  <td>
+                    <strong>情緒勒索：</strong>憂鬱症只是「不想負責」的免死金牌
+                  </td>
+                </tr>
+                <tr>
+                  <td>2024.03</td>
+                  <td>「欠債只有 14 萬」</td>
+                  <td>老闆說 30 萬，姊姊說幫還過 8 萬</td>
+                  <td>
+                    <strong>數據造假：</strong
+                    >債務跟他的承諾一樣，數字永遠隨機生成
+                  </td>
+                </tr>
+                <tr>
+                  <td>2024.04</td>
+                  <td>「不買點數了，我會改」</td>
+                  <td>偷買點數 $5,640，說「下個月還」</td>
+                  <td>
+                    <strong>江山易改本性難移：</strong
+                    >偷領薪水、偷買點數，「改」只是為了下次偷更多
+                  </td>
+                </tr>
+                <tr>
+                  <td>2024.05</td>
+                  <td>「E媽就是我親媽」</td>
+                  <td>E媽給 3 萬生活費，瞬間花光</td>
+                  <td>
+                    <strong>噬親行為：</strong
+                    >誰對他越好，他啃得越深，完全沒有羞恥感
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 情感掠奪路徑 -->
+          <div class="analysis-card ultimate-card">
+            <h3>🪱 情感掠奪路徑：農夫與蛇的循環</h3>
+            <p>
+              移工的人生是一場不斷尋找「替代性父母」的過程。他需要的不是情人，是<strong>「帶薪保姆」</strong>。
+            </p>
+            <table class="analysis-table ultimate-table">
+              <thead>
+                <tr>
+                  <th>宿主</th>
+                  <th>表面劇本</th>
+                  <th>真相拆解</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>西門前女友</td>
+                  <td>每天騎車去接送，看似深情</td>
+                  <td>
+                    寄生於對方的家庭感。說因「面子」不挽回？是發現有下一個坑可以跳了
+                  </td>
+                </tr>
+                <tr>
+                  <td>阿庭家</td>
+                  <td>幫顧小孩、泡奶、做家事</td>
+                  <td>
+                    用廉價勞動力換免費食宿。一旦被要求付房租（責任），立刻翻臉被趕走
+                  </td>
+                </tr>
+                <tr>
+                  <td>E家</td>
+                  <td>最大的魚。兩年深度寄生</td>
+                  <td>
+                    E幫他逃亡、還債、買新手機。回報？已讀不回、態度惡劣、偷買點數、找事吵架
+                  </td>
+                </tr>
+                <tr>
+                  <td>現任女友</td>
+                  <td>目前上演「裝乖期」</td>
+                  <td>一定又在講自己有多慘、E對他有多壞</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 核心信念 -->
+          <div class="analysis-card ultimate-card">
+            <h3>🧠 核心信念：全世界都欠我的「受害者心理」</h3>
+            <table class="analysis-table ultimate-table">
+              <thead>
+                <tr>
+                  <th>他的內心獨白</th>
+                  <th>翻譯</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>「因為我媽拋棄我，所以你們對我好是應該的」</td>
+                  <td>把童年創傷當萬用提款卡</td>
+                </tr>
+                <tr>
+                  <td>「因為我爸很嚴厲，所以墮落、賭博、說謊都是情有可原」</td>
+                  <td>所有不負責任都有一個悲慘藉口</td>
+                </tr>
+                <tr>
+                  <td>
+                    「因為我有社恐，所以不用工作、不用回訊息、不用面對現實」
+                  </td>
+                  <td>社恐只在承擔責任時發作</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="ultimate-highlight">
+              他利用別人的正義感和同情心，為自己的無能與自私築起一道防護牆。
+            </div>
+          </div>
+
+          <!-- 災難預言 -->
+          <div class="analysis-card ultimate-card">
+            <h3>🔮 給「現任宿主」的災難預言</h3>
+            <p>根據他的<strong>標準作業程序（SOP）</strong>，妳的未來如下：</p>
+            <table class="analysis-table ultimate-table">
+              <thead>
+                <tr>
+                  <th>時期</th>
+                  <th>妳會經歷什麼</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>前 3 個月（甜蜜期）</td>
+                  <td>他會煮飯、撒嬌、說妳救了他。妳覺得妳是他的光</td>
+                </tr>
+                <tr>
+                  <td>第 4-6 個月（索取期）</td>
+                  <td>他開始換工作，或「剛好」遇到困難需要妳代墊小錢</td>
+                </tr>
+                <tr>
+                  <td>第 6-12 個月（衝突期）</td>
+                  <td>
+                    妳發現他偷偷玩遊戲、說謊、錢對不起來。妳開始念他，他開始「社恐」發作、裝憂鬱、搞消失
+                  </td>
+                </tr>
+                <tr>
+                  <td>結局（崩壞期）</td>
+                  <td>
+                    他捲走妳最後的信任（和錢），跳到下一個女人的床上，然後跟她說妳是「控制欲強、讓他窒息」的瘋子
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 結語 -->
+          <div class="ultimate-conclusion">
+            <h3>💀 結語：他不是壞人，他是「廢人」</h3>
+            <p>
+              壞人尚且有野心。移工連野心都沒有。他只想維持最低限度的生存，並由別人買單。
+            </p>
+            <p>
+              <strong
+                >E用了兩年、幾十萬、和一個家庭的平靜才買到這個教訓：</strong
+              >
+            </p>
+            <div class="ultimate-highlight">
+              對移工這種人，最好的拯救就是<strong>「不救」</strong>。讓他去流浪、讓他去面對債主、讓他去感受現實的耳光。只要有人餵他一口軟飯，他就永遠不會站起來走路。
+            </div>
+            <p style="margin-top: 16px; font-style: italic; color: #a0aec0">
+              你還在心疼他？他在刷妳的卡買點數時，可一點都沒心疼過妳。
+            </p>
+          </div>
+
+          <p
+            style="
+              text-align: center;
+              color: #a0aec0;
+              font-size: 0.78rem;
+              margin-top: 24px;
+            "
+          >
+            本文件由事實紀錄自動生成，冷血但精準。每一句話都有時間線佐證。
+          </p>
+        </div>
+        <!-- /analysis-ultimate -->
+      </div>
+
       <div class="footer">
-        <p>這是一段真實的經歷紀錄。部分個人資訊已隱藏保護當事人。</p>
-        <p style="margin-top: 8px">E & 移工的故事 — 2024 紀實</p>
+        <p>這是一段真實的經歷紀錄。所有論述均基於可驗證的事實記錄。</p>
+        <p style="margin-top: 8px">E & 移工的故事 — 2024–2026 紀實</p>
+        <p style="margin-top: 4px; font-size: 0.78rem">最後更新：2026-04-05</p>
       </div>
     </main>
 
@@ -1908,7 +3804,9 @@
       });
 
       // Nav active state
-      const sections = document.querySelectorAll('.section-title, #intro');
+      const sections = document.querySelectorAll(
+        '.section-title, #intro, #analysis'
+      );
       const navLinks = document.querySelectorAll('.nav-bar a');
 
       const observer = new IntersectionObserver(
@@ -1929,6 +3827,21 @@
       );
 
       sections.forEach((s) => observer.observe(s));
+
+      // Analysis version toggle (3 versions)
+      function switchAnalysis(version) {
+        var versions = ['neutral', 'savage', 'ultimate'];
+        var ids = ['analysis-neutral', 'analysis-savage', 'analysis-ultimate'];
+        var labels = document.querySelectorAll('.version-toggle-label');
+        for (var i = 0; i < versions.length; i++) {
+          var el = document.getElementById(ids[i]);
+          if (el) el.style.display = versions[i] === version ? 'block' : 'none';
+        }
+        labels.forEach(function (l) {
+          l.classList.remove('active');
+          if (l.classList.contains(version)) l.classList.add('active');
+        });
+      }
     </script>
   </body>
 </html>
